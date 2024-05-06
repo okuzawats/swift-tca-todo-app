@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		352B69AB2BE827ED0055F436 /* fokusableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69AA2BE827ED0055F436 /* fokusableApp.swift */; };
-		352B69AD2BE827ED0055F436 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69AC2BE827ED0055F436 /* ContentView.swift */; };
-		352B69AF2BE827ED0055F436 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69AE2BE827ED0055F436 /* Item.swift */; };
 		352B69B12BE827ED0055F436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352B69B02BE827ED0055F436 /* Assets.xcassets */; };
 		352B69B52BE827ED0055F436 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352B69B42BE827ED0055F436 /* Preview Assets.xcassets */; };
 		352B69BF2BE827EE0055F436 /* fokusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69BE2BE827EE0055F436 /* fokusableTests.swift */; };
@@ -47,8 +45,6 @@
 /* Begin PBXFileReference section */
 		352B69A72BE827ED0055F436 /* fokusable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fokusable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352B69AA2BE827ED0055F436 /* fokusableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableApp.swift; sourceTree = "<group>"; };
-		352B69AC2BE827ED0055F436 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		352B69AE2BE827ED0055F436 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		352B69B02BE827ED0055F436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		352B69B22BE827ED0055F436 /* fokusable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fokusable.entitlements; sourceTree = "<group>"; };
 		352B69B42BE827ED0055F436 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -115,8 +111,6 @@
 			children = (
 				35581E4A2BE975240047D012 /* feature */,
 				352B69AA2BE827ED0055F436 /* fokusableApp.swift */,
-				352B69AC2BE827ED0055F436 /* ContentView.swift */,
-				352B69AE2BE827ED0055F436 /* Item.swift */,
 				352B69B02BE827ED0055F436 /* Assets.xcassets */,
 				352B69B22BE827ED0055F436 /* fokusable.entitlements */,
 				352B69B32BE827ED0055F436 /* Preview Content */,
@@ -316,8 +310,6 @@
 				35581E572BE975E40047D012 /* NoteFeature.swift in Sources */,
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
 				35581E5A2BE9764A0047D012 /* NoteView.swift in Sources */,
-				352B69AD2BE827ED0055F436 /* ContentView.swift in Sources */,
-				352B69AF2BE827ED0055F436 /* Item.swift in Sources */,
 				35581E542BE975D00047D012 /* NoteRepository.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* fokusableApp.swift in Sources */,
 				35581E4E2BE9754A0047D012 /* Note.swift in Sources */,
