@@ -18,10 +18,8 @@ struct NoteFeature {
   }
   
   enum Action {
-    /// when `NoteView` is entered.
-    case onEntered    /// when save button tapped to save the note.
+    case onEntered
     case onSaveButtonTapped
-    /// when the note is successfully saved.
     case onSuccessfullySaved
   }
 
