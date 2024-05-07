@@ -143,12 +143,20 @@
 			path = fokusableUITests;
 			sourceTree = "<group>";
 		};
-		35581E4A2BE975240047D012 /* feature */ = {
+		3551E4842BEACD0D00DE61C4 /* note */ = {
 			isa = PBXGroup;
 			children = (
 				35581E4B2BE9752C0047D012 /* repository */,
 				35581E562BE975E40047D012 /* NoteFeature.swift */,
 				35581E592BE9764A0047D012 /* NoteView.swift */,
+			);
+			path = note;
+			sourceTree = "<group>";
+		};
+		35581E4A2BE975240047D012 /* feature */ = {
+			isa = PBXGroup;
+			children = (
+				3551E4842BEACD0D00DE61C4 /* note */,
 			);
 			path = feature;
 			sourceTree = "<group>";
