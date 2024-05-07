@@ -18,7 +18,7 @@ struct NoteFeature {
   }
   
   enum Action {
-    case onEntered
+    case onEntered(UUID)
     case onSaveButtonTapped
     case onSuccessfullySaved
   }
@@ -29,7 +29,9 @@ struct NoteFeature {
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
-      case .onEntered:
+      case let .onEntered(uuid):
+        // TODO
+        print(uuid)
         return .none
       case .onSaveButtonTapped:
         return .run { send in
