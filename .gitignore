@@ -1,3 +1,6 @@
 # user action log on Xcode
 UserInterfaceState.xcuserstate
 
+# meta information about macos
+.DS_Store
+
