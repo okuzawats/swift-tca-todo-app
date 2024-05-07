@@ -1,11 +1,6 @@
 import ComposableArchitecture
 import Foundation
 
-struct Foo: Equatable, Identifiable {
-  let id: UUID
-  var answer: Int
-}
-
 struct NoteState: Equatable {
   var text: String = ""
 }
