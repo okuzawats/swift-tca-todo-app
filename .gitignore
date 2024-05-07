@@ -1,6 +1,7 @@
-# user action log on Xcode
+# for xcode to track user data: specific to developer's local environment
+*/xcuserdata/*
 UserInterfaceState.xcuserstate
 
-# meta information about macos
+# for macos to track user data: specific to developer's local environment
 .DS_Store
 
