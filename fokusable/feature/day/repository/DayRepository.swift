@@ -2,8 +2,13 @@ import Dependencies
 import Foundation
 import SwiftData
 
+enum DayRepositoryError: Error {
+  case initializationError
+  case insertionError
+}
+
 struct DayRepository {
-  var save: (Int) async throws -> String
+  var save: (Int) async -> Result<String, DayRepositoryError>
 }
 
 extension DayRepository: DependencyKey {
@@ -12,10 +17,22 @@ extension DayRepository: DependencyKey {
       @Dependency(\.dayDatabase.context)
       var context: () throws -> ModelContext
 
-      let dayContext = try context()
-      dayContext.insert(Day(id: UUID()))
-      try dayContext.save()
-      return "bar"
+      let modelContext: ModelContext
+      do {
+        modelContext = try context()
+      } catch {
+        return .failure(.insertionError)
+      }
+
+      let inserted: Day
+      do {
+        modelContext.insert(Day(id: UUID()))
+        try modelContext.save()
+      } catch {
+        return .failure(.insertionError)
+      }
+
+      return .success("bar")
     }
   )
 }
