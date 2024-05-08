@@ -6,7 +6,7 @@ struct NoteDatabase {
 }
 
 extension NoteDatabase: DependencyKey {
-  static let liveValue = Self(
+  static let liveValue: NoteDatabase = Self(
     context: { appContext }
   )
 }

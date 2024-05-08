@@ -7,7 +7,7 @@ struct NoteRepository {
 }
 
 extension NoteRepository: DependencyKey {
-  static let liveValue = Self(
+  static let liveValue: NoteRepository = Self(
     save: { _ in
       @Dependency(\.noteDatabase.context) var context
       let noteContext = try context()
