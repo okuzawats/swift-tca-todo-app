@@ -9,7 +9,9 @@ struct NoteRepository {
 extension NoteRepository: DependencyKey {
   static let liveValue: NoteRepository = Self(
     save: { _ in
-      @Dependency(\.noteDatabase.context) var context
+      @Dependency(\.noteDatabase.context)
+      var context: () throws -> ModelContext
+
       let noteContext = try context()
       noteContext.insert(Note(id: UUID()))
       try noteContext.save()

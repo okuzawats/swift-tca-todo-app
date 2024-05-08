@@ -9,7 +9,9 @@ struct DayRepository {
 extension DayRepository: DependencyKey {
   static let liveValue: DayRepository = Self(
     save: { _ in
-      @Dependency(\.dayDatabase.context) var context
+      @Dependency(\.dayDatabase.context)
+      var context: () throws -> ModelContext
+
       let dayContext = try context()
       dayContext.insert(Day(id: UUID()))
       try dayContext.save()
