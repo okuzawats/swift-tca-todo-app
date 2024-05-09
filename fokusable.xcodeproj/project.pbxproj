@@ -14,6 +14,8 @@
 		352B69C92BE827EE0055F436 /* fokusableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69C82BE827EE0055F436 /* fokusableUITests.swift */; };
 		352B69CB2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */; };
 		352B69D92BE828900055F436 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 352B69D82BE828900055F436 /* ComposableArchitecture */; };
+		354EC0572BED6D9400B35D7F /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354EC0562BED6D9400B35D7F /* AppFeature.swift */; };
+		354EC0582BED6D9400B35D7F /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354EC0562BED6D9400B35D7F /* AppFeature.swift */; };
 		3551E4882BEACDD200DE61C4 /* DayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4872BEACDD200DE61C4 /* DayFeature.swift */; };
 		3551E48A2BEAD07B00DE61C4 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4892BEAD07B00DE61C4 /* DayView.swift */; };
 		3551E48D2BEC158F00DE61C4 /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E48C2BEC158F00DE61C4 /* DayRepository.swift */; };
@@ -61,6 +63,7 @@
 		352B69C42BE827EE0055F436 /* fokusableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fokusableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		352B69C82BE827EE0055F436 /* fokusableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITests.swift; sourceTree = "<group>"; };
 		352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		354EC0562BED6D9400B35D7F /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		3551E4872BEACDD200DE61C4 /* DayFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFeature.swift; sourceTree = "<group>"; };
 		3551E4892BEAD07B00DE61C4 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		3551E48C2BEC158F00DE61C4 /* DayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRepository.swift; sourceTree = "<group>"; };
@@ -156,6 +159,14 @@
 			path = fokusableUITests;
 			sourceTree = "<group>";
 		};
+		354EC0552BED6D7D00B35D7F /* app */ = {
+			isa = PBXGroup;
+			children = (
+				354EC0562BED6D9400B35D7F /* AppFeature.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		3551E4842BEACD0D00DE61C4 /* note */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +208,7 @@
 		35581E4A2BE975240047D012 /* feature */ = {
 			isa = PBXGroup;
 			children = (
+				354EC0552BED6D7D00B35D7F /* app */,
 				3551E4852BEACDAD00DE61C4 /* day */,
 				3551E4842BEACD0D00DE61C4 /* note */,
 			);
@@ -357,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354EC0572BED6D9400B35D7F /* AppFeature.swift in Sources */,
 				35581E572BE975E40047D012 /* NoteFeature.swift in Sources */,
 				3551E48A2BEAD07B00DE61C4 /* DayView.swift in Sources */,
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
@@ -375,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354EC0582BED6D9400B35D7F /* AppFeature.swift in Sources */,
 				3551E4922BEC178100DE61C4 /* Day.swift in Sources */,
 				3551E48E2BEC158F00DE61C4 /* DayRepository.swift in Sources */,
 				35581E522BE975760047D012 /* NoteDatabase.swift in Sources */,
