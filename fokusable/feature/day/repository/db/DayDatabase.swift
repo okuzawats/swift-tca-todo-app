@@ -2,12 +2,12 @@ import Dependencies
 import SwiftData
 
 struct DayDatabase {
-  var context: () -> ModelContext
+  let context: ModelContext
 }
 
 extension DayDatabase: DependencyKey {
   static let liveValue: DayDatabase = Self(
-    context: { appContext }
+    context: { appContext }()
   )
 }
 

@@ -14,13 +14,12 @@ extension DayRepository: DependencyKey {
   static let liveValue: DayRepository = Self(
     save: { _ in
       @Dependency(\.dayDatabase.context)
-      var context: () -> ModelContext
-      let modelContext: ModelContext = context()
+      var context: ModelContext
 
       let inserted: Day
       do {
-        modelContext.insert(Day(id: UUID()))
-        try modelContext.save()
+        context.insert(Day(id: UUID()))
+        try context.save()
       } catch {
         return .failure(.insertionError)
       }

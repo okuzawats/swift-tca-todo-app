@@ -14,13 +14,12 @@ extension NoteRepository: DependencyKey {
   static let liveValue: NoteRepository = Self(
     save: { _ in
       @Dependency(\.noteDatabase.context)
-      var context: () -> ModelContext
-      let modelContext: ModelContext = context()
+      var context: ModelContext
 
       let inserted: Note
       do {
-        modelContext.insert(Note(id: UUID()))
-        try modelContext.save()
+        context.insert(Note(id: UUID()))
+        try context.save()
       } catch {
         return .failure(.insertionError)
       }
