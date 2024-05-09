@@ -2,8 +2,13 @@ import Dependencies
 import Foundation
 import SwiftData
 
+enum NoteRepositoryError: Error {
+  case initializationError
+  case insertionError
+}
+
 struct NoteRepository {
-  var save: (Int) async throws -> String
+  var save: (Int) async -> Result<String, NoteRepositoryError>
 }
 
 extension NoteRepository: DependencyKey {
@@ -12,10 +17,22 @@ extension NoteRepository: DependencyKey {
       @Dependency(\.noteDatabase.context)
       var context: () throws -> ModelContext
 
-      let noteContext = try context()
-      noteContext.insert(Note(id: UUID()))
-      try noteContext.save()
-      return "foo"
+      let modelContext: ModelContext
+      do {
+        modelContext = try context()
+      } catch {
+        return .failure(.initializationError)
+      }
+
+      let inserted: Note
+      do {
+        modelContext.insert(Note(id: UUID()))
+        try modelContext.save()
+      } catch {
+        return .failure(.insertionError)
+      }
+
+      return .success("foo")
     }
   )
 }
