@@ -3,7 +3,6 @@ import Foundation
 import SwiftData
 
 enum DayRepositoryError: Error {
-  case initializationError
   case insertionError
 }
 
@@ -15,14 +14,8 @@ extension DayRepository: DependencyKey {
   static let liveValue: DayRepository = Self(
     save: { _ in
       @Dependency(\.dayDatabase.context)
-      var context: () throws -> ModelContext
-
-      let modelContext: ModelContext
-      do {
-        modelContext = try context()
-      } catch {
-        return .failure(.initializationError)
-      }
+      var context: () -> ModelContext
+      let modelContext: ModelContext = context()
 
       let inserted: Day
       do {

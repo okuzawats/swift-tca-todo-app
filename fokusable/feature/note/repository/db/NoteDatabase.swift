@@ -2,7 +2,7 @@ import Dependencies
 import SwiftData
 
 struct NoteDatabase {
-  var context: () throws -> ModelContext
+  var context: () -> ModelContext
 }
 
 extension NoteDatabase: DependencyKey {

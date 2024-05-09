@@ -3,7 +3,6 @@ import Foundation
 import SwiftData
 
 enum NoteRepositoryError: Error {
-  case initializationError
   case insertionError
 }
 
@@ -15,14 +14,8 @@ extension NoteRepository: DependencyKey {
   static let liveValue: NoteRepository = Self(
     save: { _ in
       @Dependency(\.noteDatabase.context)
-      var context: () throws -> ModelContext
-
-      let modelContext: ModelContext
-      do {
-        modelContext = try context()
-      } catch {
-        return .failure(.initializationError)
-      }
+      var context: () -> ModelContext
+      let modelContext: ModelContext = context()
 
       let inserted: Note
       do {

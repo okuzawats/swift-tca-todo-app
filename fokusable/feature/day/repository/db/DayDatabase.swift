@@ -2,7 +2,7 @@ import Dependencies
 import SwiftData
 
 struct DayDatabase {
-  var context: () throws -> ModelContext
+  var context: () -> ModelContext
 }
 
 extension DayDatabase: DependencyKey {
