@@ -4,16 +4,14 @@ import SwiftUI
 @main
 struct fokusableApp: App {
   static let store = Store(
-    initialState: NoteFeature.State(
-      noteState: NoteState()
-    )
+    initialState: AppFeature.State()
   ) {
-    NoteFeature()
+    AppFeature()
   }
 
   var body: some Scene {
     WindowGroup {
-      NoteView(
+      AppView(
         store: fokusableApp.store
       )
     }
