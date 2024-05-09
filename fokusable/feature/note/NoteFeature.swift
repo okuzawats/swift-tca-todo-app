@@ -30,7 +30,7 @@ struct NoteFeature {
         return .none
       case .onSaveButtonTapped:
         return .run { send in
-          let retVal = try await noteRepository.save(42)
+          _ = try await noteRepository.save(42)
           await send(.onSuccessfullySaved)
         }
       case .onSuccessfullySaved:
