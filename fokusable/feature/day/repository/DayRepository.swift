@@ -21,7 +21,7 @@ extension DayRepository: DependencyKey {
       do {
         modelContext = try context()
       } catch {
-        return .failure(.insertionError)
+        return .failure(.initializationError)
       }
 
       let inserted: Day
