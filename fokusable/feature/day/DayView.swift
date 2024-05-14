@@ -6,12 +6,13 @@ struct DayView: View {
   var store: StoreOf<DayFeature>
 
   var body: some View {
-//    List {
-//      ForEach(store.days) { item in
-//        Text("day = \(item.day)")
-//      }
-//    }
-    Text("This is DayView.")
+    List {
+      ForEach(store.days) { item in
+        Text("day = \(item.day)")
+      }
+    }.onAppear {
+      store.send(.onEnter)
+    }
   }
 }
 

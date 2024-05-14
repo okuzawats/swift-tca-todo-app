@@ -21,6 +21,7 @@ struct DayFeature {
     Reduce { state, action in
       switch action {
       case .onEnter:
+        print("onEnter")
         return .none
       }
     }
