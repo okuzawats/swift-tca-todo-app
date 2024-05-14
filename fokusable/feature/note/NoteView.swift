@@ -8,7 +8,7 @@ struct NoteView: View {
   var body: some View {
     List {
       ForEach(store.items) { item in
-        Text("- [\(item.bracket)] \(item.text)")
+        Text(item.toPresentation())
           .padding(.bottom, 4)
       }
     }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
