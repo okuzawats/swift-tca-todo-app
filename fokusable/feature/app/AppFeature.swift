@@ -4,9 +4,7 @@ import ComposableArchitecture
 struct AppFeature {
   struct State: Equatable {
     var day: DayFeature.State = DayFeature.State()
-    var note: NoteFeature.State = NoteFeature.State(
-      noteState: NoteState(text: "")
-    )
+    var note: NoteFeature.State = NoteFeature.State()
   }
   
   enum Action {

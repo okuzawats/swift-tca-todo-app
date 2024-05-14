@@ -20,7 +20,7 @@ struct NoteView: View {
   NoteView(
     store: Store<NoteFeature.State, NoteFeature.Action>(
       initialState: NoteFeature.State(
-        noteState: NoteState(text: "Hello World!")
+        items: []
       )
     ) {
       NoteFeature()
