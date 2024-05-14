@@ -1,5 +1,6 @@
 import ComposableArchitecture
 import Foundation
+import Logging
 
 struct NoteState: Equatable {
   var text: String = ""
@@ -7,6 +8,9 @@ struct NoteState: Equatable {
 
 @Reducer
 struct NoteFeature {
+
+  private let logger = Logger(label: "NoteFeature")
+
   @ObservableState
   struct State: Equatable {
     var noteState: NoteState
@@ -25,8 +29,7 @@ struct NoteFeature {
     Reduce { state, action in
       switch action {
       case let .onEntered(uuid):
-        // TODO
-        print(uuid)
+        logger.info("onEntered with UUID \(uuid)")
         return .none
       case .onSaveButtonTapped:
         return .run { send in

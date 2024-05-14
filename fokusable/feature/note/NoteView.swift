@@ -6,8 +6,10 @@ struct NoteView: View {
   var store: StoreOf<NoteFeature>
 
   var body: some View {
-//    Text(store.state.noteState.text)
     Text("This is NoteView.")
+      .onAppear {
+        store.send(.onEntered(UUID())) // TODO fix UUID
+      }
   }
 }
 
