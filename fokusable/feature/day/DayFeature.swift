@@ -1,5 +1,6 @@
 import ComposableArchitecture
 import Foundation
+import Logging
 
 struct DayItem: Equatable, Identifiable {
   let id: UUID
@@ -8,6 +9,9 @@ struct DayItem: Equatable, Identifiable {
 
 @Reducer
 struct DayFeature {
+
+  private let logger = Logger(label: "DayFeature")
+
   @ObservableState
   struct State: Equatable {
     var days: IdentifiedArrayOf<DayItem> = []
@@ -21,7 +25,7 @@ struct DayFeature {
     Reduce { state, action in
       switch action {
       case .onEnter:
-        print("onEnter")
+        logger.info("onEnter")
         return .none
       }
     }
