@@ -34,6 +34,7 @@
 		35581E572BE975E40047D012 /* NoteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E562BE975E40047D012 /* NoteFeature.swift */; };
 		35581E582BE975E40047D012 /* NoteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E562BE975E40047D012 /* NoteFeature.swift */; };
 		35581E5A2BE9764A0047D012 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E592BE9764A0047D012 /* NoteView.swift */; };
+		355987342BF3FFE2005E816A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 355987332BF3FFE2005E816A /* Logging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355987342BF3FFE2005E816A /* Logging in Frameworks */,
 				352B69D92BE828900055F436 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +256,7 @@
 			name = fokusable;
 			packageProductDependencies = (
 				352B69D82BE828900055F436 /* ComposableArchitecture */,
+				355987332BF3FFE2005E816A /* Logging */,
 			);
 			productName = fokusable;
 			productReference = 352B69A72BE827ED0055F436 /* fokusable.app */;
@@ -329,6 +332,7 @@
 			mainGroup = 352B699E2BE827ED0055F436;
 			packageReferences = (
 				352B69D72BE8288F0055F436 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				355987322BF3FFE2005E816A /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = 352B69A82BE827ED0055F436 /* Products */;
 			projectDirPath = "";
@@ -751,6 +755,14 @@
 				minimumVersion = 1.10.2;
 			};
 		};
+		355987322BF3FFE2005E816A /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -758,6 +770,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 352B69D72BE8288F0055F436 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		355987332BF3FFE2005E816A /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 355987322BF3FFE2005E816A /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
