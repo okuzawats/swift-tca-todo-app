@@ -9,9 +9,6 @@ struct DayItem: Equatable, Identifiable {
 
 @Reducer
 struct DayFeature {
-
-  private let logger = Logger(label: "DayFeature")
-
   @ObservableState
   struct State: Equatable {
     var days: IdentifiedArrayOf<DayItem> = []
@@ -30,4 +27,6 @@ struct DayFeature {
       }
     }
   }
+
+  private let logger = Logger(label: "DayFeature")
 }

@@ -10,9 +10,6 @@ struct NoteItem: Equatable, Identifiable {
 
 @Reducer
 struct NoteFeature {
-
-  private let logger = Logger(label: "NoteFeature")
-
   @ObservableState
   struct State: Equatable {
     var items: IdentifiedArrayOf<NoteItem> = []
@@ -23,10 +20,10 @@ struct NoteFeature {
     case onSaveButtonTapped
     case onSuccessfullySaved
   }
-
+  
   @Dependency(\.noteRepository)
   var noteRepository: NoteRepository
-
+  
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
@@ -43,4 +40,6 @@ struct NoteFeature {
       }
     }
   }
+  
+  private let logger = Logger(label: "NoteFeature")
 }
