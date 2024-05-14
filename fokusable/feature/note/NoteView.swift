@@ -4,12 +4,14 @@ import SwiftUI
 struct NoteView: View {
   @Bindable
   var store: StoreOf<NoteFeature>
-
+  
   var body: some View {
-    Text("This is NoteView.")
-      // align element top-leading. maxWidth and maxHeight must be set to `.infinity`.
-      .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-      .padding()
+    List {
+      ForEach(store.items) { item in
+        Text("- [\(item.bracket)] \(item.text)")
+          .padding(.bottom, 4)
+      }
+    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
       .onAppear {
         store.send(.onEntered(UUID())) // TODO fix UUID
       }

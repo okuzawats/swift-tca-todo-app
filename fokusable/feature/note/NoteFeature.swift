@@ -29,6 +29,11 @@ struct NoteFeature {
       switch action {
       case let .onEntered(uuid):
         logger.info("onEntered with UUID \(uuid)")
+        state.items = [
+          NoteItem(id: UUID(), bracket: "X", text: "Done!"),
+          NoteItem(id: UUID(), bracket: ">", text: "Postponed"),
+          NoteItem(id: UUID(), bracket: "  ", text: "TODO"),
+        ]
         return .none
       case .onSaveButtonTapped:
         return .run { send in
