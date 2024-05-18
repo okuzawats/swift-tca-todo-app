@@ -2,12 +2,6 @@ import ComposableArchitecture
 import Foundation
 import Logging
 
-struct NoteItem: Equatable, Identifiable {
-  let id: UUID
-  let bracket: String // TODO define enum
-  let text: String
-}
-
 @Reducer
 struct NoteFeature {
   @ObservableState
