@@ -17,7 +17,14 @@ struct DayFeature {
     Reduce { state, action in
       switch action {
       case .onEnter:
-        logger.info("onEnter")
+        // TODO
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        state.days = [
+          DayItem(id: UUID(), day: formatter.string(from: date))
+        ]
+        logger.info("onEnter with date \(formatter.string(from: date))")
         return .none
       }
     }

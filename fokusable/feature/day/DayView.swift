@@ -8,7 +8,7 @@ struct DayView: View {
   var body: some View {
     List {
       ForEach(store.days) { item in
-        Text("day = \(item.day)")
+        Text("\(item.day)")
       }
     }.onAppear {
       store.send(.onEnter)
