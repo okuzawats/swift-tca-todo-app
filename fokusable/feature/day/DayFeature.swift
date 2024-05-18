@@ -2,11 +2,6 @@ import ComposableArchitecture
 import Foundation
 import Logging
 
-struct DayItem: Equatable, Identifiable {
-  let id: UUID
-  let day: String
-}
-
 @Reducer
 struct DayFeature {
   @ObservableState
