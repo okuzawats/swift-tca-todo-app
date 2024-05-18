@@ -9,7 +9,7 @@ enum DayRepositoryError: Error {
 
 struct DayRepository {
   var fetchAll: () async -> Result<Array<Day>, DayRepositoryError>
-  var save: (Int) async -> Result<String, DayRepositoryError>
+  var save: (Day) async -> Result<String, DayRepositoryError>
 }
 
 extension DayRepository: DependencyKey {
@@ -29,13 +29,13 @@ extension DayRepository: DependencyKey {
       // TODO transform [Day] to non-db-dependent type
       return .success(allDay)
     },
-    save: { _ in
+    save: { day in
       @Dependency(\.dayDatabase.context)
       var context: ModelContext
 
       let inserted: Day
       do {
-        context.insert(Day(id: UUID()))
+        context.insert(day)
         try context.save()
       } catch {
         return .failure(.insertionError)

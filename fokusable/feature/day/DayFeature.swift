@@ -11,20 +11,37 @@ struct DayFeature {
   
   enum Action {
     case onEnter
+    case onDaysFetched([Day])
   }
+
+  @Dependency(\.dayRepository)
+  var dayRepository: DayRepository
 
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
       case .onEnter:
-        // TODO
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        state.days = [
-          DayItem(id: UUID(), day: formatter.string(from: date))
-        ]
-        logger.info("onEnter with date \(formatter.string(from: date))")
+        logger.info("onEnter")
+        return .run { send in
+          let date = Date()
+          let formatter = DateFormatter()
+          formatter.dateFormat = "yyyy-MM-dd"
+          let _ = await dayRepository.save(Day(id: UUID(), date: formatter.string(from: date)))
+
+          let allDays = await dayRepository.fetchAll()
+          switch allDays {
+          case .success(let days):
+            await send(.onDaysFetched(days))
+          case .failure(let error):
+            logger.error("DayRepository#fetchAll failed with \(error)")
+          }
+        }
+      case .onDaysFetched(let days):
+        state.days = IdentifiedArrayOf(
+          uniqueElements: days.map { day in
+            DayItem(id: day.id, day: day.date)
+          }
+        )
         return .none
       }
     }
