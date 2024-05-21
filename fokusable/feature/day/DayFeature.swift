@@ -23,14 +23,24 @@ struct DayFeature {
       case .onEnter:
         logger.info("onEnter")
         return .run { send in
-          let date = Date()
-          let formatter = DateFormatter()
-          formatter.dateFormat = "yyyy-MM-dd"
-          let _ = await dayRepository.save(Day(id: UUID(), date: formatter.string(from: date)))
-
           let allDays = await dayRepository.fetchAll()
           switch allDays {
-          case .success(let days):
+          case .success(var days):
+            let dateOfToday = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+
+            let hasCreatedToday = days.contains(where: { day in
+              day.date == formatter.string(from: dateOfToday)
+            })
+            if !hasCreatedToday {
+              let today = Day(
+                id: UUID(),
+                date: formatter.string(from: dateOfToday)
+              )
+              let _ = await dayRepository.save(today)
+              days.insert(today, at: 0)
+            }
             await send(.onDaysFetched(days))
           case .failure(let error):
             logger.error("DayRepository#fetchAll failed with \(error)")
