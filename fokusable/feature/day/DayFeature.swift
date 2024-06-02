@@ -11,6 +11,7 @@ struct DayFeature {
   
   enum Action {
     case onEnter
+    case onDaySelected
     case onDaysFetched([Day])
   }
 
@@ -46,6 +47,9 @@ struct DayFeature {
             logger.error("DayRepository#fetchAll failed with \(error)")
           }
         }
+      case .onDaySelected:
+        logger.info("on day selected")
+        return .none
       case .onDaysFetched(let days):
         state.days = IdentifiedArrayOf(
           uniqueElements: days.map { day in
