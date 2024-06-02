@@ -1,4 +1,5 @@
 import ComposableArchitecture
+import Logging
 
 @Reducer
 struct AppFeature {
@@ -22,7 +23,10 @@ struct AppFeature {
     }
 
     Reduce { state, action in
+      logger.info("\(action)") // FIXME
       return .none
     }
   }
+
+  private let logger = Logger(label: "AppFeature")
 }
