@@ -8,6 +8,7 @@ struct fokusableApp: App {
     initialState: AppFeature.State()
   ) {
     AppFeature()
+      ._printChanges()
   }
 
   var body: some Scene {

@@ -22,7 +22,6 @@ struct NoteFeature {
     Reduce { state, action in
       switch action {
       case let .onEntered(uuid):
-        logger.info("onEntered with UUID \(uuid)")
         state.items = [
           NoteItem(id: UUID(), bracket: "X", text: "Done!"),
           NoteItem(id: UUID(), bracket: ">", text: "Postponed"),

@@ -22,7 +22,6 @@ struct DayFeature {
     Reduce { state, action in
       switch action {
       case .onEnter:
-        logger.info("onEnter")
         return .run { send in
           let allDays = await dayRepository.fetchAll()
           switch allDays {
@@ -48,7 +47,6 @@ struct DayFeature {
           }
         }
       case .onDaySelected:
-        logger.info("on day selected")
         return .none
       case .onDaysFetched(let days):
         state.days = IdentifiedArrayOf(
