@@ -10,7 +10,7 @@ struct DayView: View {
       ForEach(store.days) { item in
         Text("\(item.day)")
           .onTapGesture {
-            store.send(.onDaySelected)
+            store.send(.onDaySelected(item.id))
           }
       }
     }.onAppear {

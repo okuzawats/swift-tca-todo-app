@@ -6,13 +6,15 @@ import Logging
 struct DayFeature {
   @ObservableState
   struct State: Equatable {
+    @Presents var selectedItem: NoteFeature.State?
     var days: IdentifiedArrayOf<DayItem> = []
   }
   
   enum Action {
     case onEnter
-    case onDaySelected
+    case onDaySelected(UUID)
     case onDaysFetched([Day])
+    case navigateToSelectedDay(PresentationAction<NoteFeature.Action>)
   }
 
   @Dependency(\.dayRepository)
@@ -46,8 +48,10 @@ struct DayFeature {
             logger.error("DayRepository#fetchAll failed with \(error)")
           }
         }
-      case .onDaySelected:
-        return .none
+      case let .onDaySelected(id):
+        return .run { send in
+          await send(.navigateToSelectedDay(.presented(.onEntered(id))))
+        }
       case .onDaysFetched(let days):
         state.days = IdentifiedArrayOf(
           uniqueElements: days.map { day in
@@ -55,7 +59,18 @@ struct DayFeature {
           }
         )
         return .none
+      case let .navigateToSelectedDay(.presented(.onEntered(id))):
+        return .none
+      case .navigateToSelectedDay(.presented(.onSaveButtonTapped)):
+        return .none
+      case .navigateToSelectedDay(.presented(.onSuccessfullySaved)):
+        return .none
+      case .navigateToSelectedDay(.dismiss):
+        return .none
       }
+    }
+    .ifLet(\.$selectedItem, action: \.navigateToSelectedDay) {
+      NoteFeature()
     }
   }
 

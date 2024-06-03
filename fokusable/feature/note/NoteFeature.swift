@@ -25,7 +25,7 @@ struct NoteFeature {
         state.items = [
           NoteItem(id: UUID(), bracket: "X", text: "Done!"),
           NoteItem(id: UUID(), bracket: ">", text: "Postponed"),
-          NoteItem(id: UUID(), bracket: "  ", text: "TODO"),
+          NoteItem(id: UUID(), bracket: "  ", text: "\(uuid)"),
         ]
         return .none
       case .onSaveButtonTapped:
