@@ -3,7 +3,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct fokusableApp: App {
+struct FokusableApp: App {
   static let store = Store(
     initialState: AppFeature.State()
   ) {
@@ -14,7 +14,7 @@ struct fokusableApp: App {
   var body: some Scene {
     WindowGroup {
       AppView(
-        store: fokusableApp.store
+        store: FokusableApp.store
       )
       .modelContainer(for: [Day.self, Note.self])
     }
