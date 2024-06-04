@@ -199,18 +199,8 @@
 		3551E48B2BEC157500DE61C4 /* repository */ = {
 			isa = PBXGroup;
 			children = (
-				3551E48F2BEC176500DE61C4 /* db */,
 			);
 			path = repository;
-			sourceTree = "<group>";
-		};
-		3551E48F2BEC176500DE61C4 /* db */ = {
-			isa = PBXGroup;
-			children = (
-				3551E4902BEC178100DE61C4 /* Day.swift */,
-				3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */,
-			);
-			path = db;
 			sourceTree = "<group>";
 		};
 		35581E4A2BE975240047D012 /* feature */ = {
@@ -225,18 +215,8 @@
 		35581E4B2BE9752C0047D012 /* repository */ = {
 			isa = PBXGroup;
 			children = (
-				35581E4C2BE975380047D012 /* db */,
 			);
 			path = repository;
-			sourceTree = "<group>";
-		};
-		35581E4C2BE975380047D012 /* db */ = {
-			isa = PBXGroup;
-			children = (
-				35581E4D2BE9754A0047D012 /* Note.swift */,
-				35581E502BE975760047D012 /* NoteDatabase.swift */,
-			);
-			path = db;
 			sourceTree = "<group>";
 		};
 		35D3DAA52BF5596F001D89B8 /* feature */ = {
@@ -258,6 +238,7 @@
 		35F34C0C2C0FB6C7000EE97D /* day */ = {
 			isa = PBXGroup;
 			children = (
+				35F34C0E2C0FB834000EE97D /* database */,
 				35F34C072C0FB611000EE97D /* DayRepository.swift */,
 				35D5F0C42BF9419700FF9ACB /* DayItem.swift */,
 			);
@@ -267,10 +248,29 @@
 		35F34C0D2C0FB6D8000EE97D /* note */ = {
 			isa = PBXGroup;
 			children = (
+				35F34C0F2C0FB843000EE97D /* database */,
 				35F34C082C0FB611000EE97D /* NoteRepository.swift */,
 				35D5F0C62BF941F400FF9ACB /* NoteItem.swift */,
 			);
 			path = note;
+			sourceTree = "<group>";
+		};
+		35F34C0E2C0FB834000EE97D /* database */ = {
+			isa = PBXGroup;
+			children = (
+				3551E4902BEC178100DE61C4 /* Day.swift */,
+				3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */,
+			);
+			path = database;
+			sourceTree = "<group>";
+		};
+		35F34C0F2C0FB843000EE97D /* database */ = {
+			isa = PBXGroup;
+			children = (
+				35581E4D2BE9754A0047D012 /* Note.swift */,
+				35581E502BE975760047D012 /* NoteDatabase.swift */,
+			);
+			path = database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
