@@ -34,8 +34,8 @@
 		35D5F0C32BF55BD900FF9ACB /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35D5F0C72BF941F400FF9ACB /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
-		35F34C002C0FB4AE000EE97D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* AppView.swift */; };
-		35F34C012C0FB4AE000EE97D /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */; };
+		35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */; };
+		35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */; };
 		35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C072C0FB611000EE97D /* DayRepository.swift */; };
 		35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C082C0FB611000EE97D /* NoteRepository.swift */; };
 /* End PBXBuildFile section */
@@ -80,8 +80,8 @@
 		35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemExtentionTests.swift; sourceTree = "<group>"; };
 		35D5F0C42BF9419700FF9ACB /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
 		35D5F0C62BF941F400FF9ACB /* NoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
-		35F34BFE2C0FB4AE000EE97D /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
+		35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableView.swift; sourceTree = "<group>"; };
+		35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableFeature.swift; sourceTree = "<group>"; };
 		35F34C072C0FB611000EE97D /* DayRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayRepository.swift; sourceTree = "<group>"; };
 		35F34C082C0FB611000EE97D /* NoteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
-				35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */,
-				35F34BFE2C0FB4AE000EE97D /* AppView.swift */,
+				35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */,
+				35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */,
 				35F34C0C2C0FB6C7000EE97D /* day */,
 				35F34C0D2C0FB6D8000EE97D /* note */,
 				35581E4A2BE975240047D012 /* feature */,
@@ -419,8 +419,8 @@
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* FokusableApp.swift in Sources */,
 				3551E4882BEACDD200DE61C4 /* DayFeature.swift in Sources */,
-				35F34C012C0FB4AE000EE97D /* AppFeature.swift in Sources */,
-				35F34C002C0FB4AE000EE97D /* AppView.swift in Sources */,
+				35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */,
+				35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */,
 				3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
 				3551E4912BEC178100DE61C4 /* Day.swift in Sources */,
 				35581E4E2BE9754A0047D012 /* Note.swift in Sources */,

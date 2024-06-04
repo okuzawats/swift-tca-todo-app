@@ -2,7 +2,7 @@ import ComposableArchitecture
 import Logging
 
 @Reducer
-struct AppFeature {
+struct FokusableFeature {
   struct State: Equatable {
     var day: DayFeature.State = DayFeature.State()
     var note: NoteFeature.State = NoteFeature.State()
@@ -28,5 +28,5 @@ struct AppFeature {
     }
   }
 
-  private let logger = Logger(label: "AppFeature")
+  private let logger = Logger(label: "FokusableFeature")
 }

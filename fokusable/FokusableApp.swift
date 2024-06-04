@@ -5,15 +5,15 @@ import SwiftUI
 @main
 struct FokusableApp: App {
   static let store = Store(
-    initialState: AppFeature.State()
+    initialState: FokusableFeature.State()
   ) {
-    AppFeature()
+    FokusableFeature()
       ._printChanges()
   }
 
   var body: some Scene {
     WindowGroup {
-      AppView(
+      FokusableView(
         store: FokusableApp.store
       )
       .modelContainer(for: [Day.self, Note.self])

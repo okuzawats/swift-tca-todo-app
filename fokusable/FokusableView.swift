@@ -1,9 +1,9 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct AppView: View {
+struct FokusableView: View {
   @Bindable
-  var store: StoreOf<AppFeature>
+  var store: StoreOf<FokusableFeature>
 
   var body: some View {
     NavigationSplitView {
