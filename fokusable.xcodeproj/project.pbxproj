@@ -138,11 +138,12 @@
 		352B69A92BE827ED0055F436 /* fokusable */ = {
 			isa = PBXGroup;
 			children = (
-				35F34C0B2C0FB616000EE97D /* repository */,
+				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
 				35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */,
 				35F34BFE2C0FB4AE000EE97D /* AppView.swift */,
+				35F34C0C2C0FB6C7000EE97D /* day */,
+				35F34C0D2C0FB6D8000EE97D /* note */,
 				35581E4A2BE975240047D012 /* feature */,
-				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
 				352B69B02BE827ED0055F436 /* Assets.xcassets */,
 				352B69B22BE827ED0055F436 /* fokusable.entitlements */,
 				352B69B32BE827ED0055F436 /* Preview Content */,
@@ -256,15 +257,6 @@
 				35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */,
 			);
 			path = note;
-			sourceTree = "<group>";
-		};
-		35F34C0B2C0FB616000EE97D /* repository */ = {
-			isa = PBXGroup;
-			children = (
-				35F34C0D2C0FB6D8000EE97D /* note */,
-				35F34C0C2C0FB6C7000EE97D /* day */,
-			);
-			path = repository;
 			sourceTree = "<group>";
 		};
 		35F34C0C2C0FB6C7000EE97D /* day */ = {
