@@ -261,10 +261,26 @@
 		35F34C0B2C0FB616000EE97D /* repository */ = {
 			isa = PBXGroup;
 			children = (
-				35F34C072C0FB611000EE97D /* DayRepository.swift */,
-				35F34C082C0FB611000EE97D /* NoteRepository.swift */,
+				35F34C0D2C0FB6D8000EE97D /* note */,
+				35F34C0C2C0FB6C7000EE97D /* day */,
 			);
 			path = repository;
+			sourceTree = "<group>";
+		};
+		35F34C0C2C0FB6C7000EE97D /* day */ = {
+			isa = PBXGroup;
+			children = (
+				35F34C072C0FB611000EE97D /* DayRepository.swift */,
+			);
+			path = day;
+			sourceTree = "<group>";
+		};
+		35F34C0D2C0FB6D8000EE97D /* note */ = {
+			isa = PBXGroup;
+			children = (
+				35F34C082C0FB611000EE97D /* NoteRepository.swift */,
+			);
+			path = note;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
