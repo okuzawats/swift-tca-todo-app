@@ -16,8 +16,6 @@
 		352B69D92BE828900055F436 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 352B69D82BE828900055F436 /* ComposableArchitecture */; };
 		3551E4882BEACDD200DE61C4 /* DayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4872BEACDD200DE61C4 /* DayFeature.swift */; };
 		3551E48A2BEAD07B00DE61C4 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4892BEAD07B00DE61C4 /* DayView.swift */; };
-		3551E48D2BEC158F00DE61C4 /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E48C2BEC158F00DE61C4 /* DayRepository.swift */; };
-		3551E48E2BEC158F00DE61C4 /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E48C2BEC158F00DE61C4 /* DayRepository.swift */; };
 		3551E4912BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4922BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */; };
@@ -26,8 +24,6 @@
 		35581E4F2BE9754A0047D012 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E4D2BE9754A0047D012 /* Note.swift */; };
 		35581E512BE975760047D012 /* NoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E502BE975760047D012 /* NoteDatabase.swift */; };
 		35581E522BE975760047D012 /* NoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E502BE975760047D012 /* NoteDatabase.swift */; };
-		35581E542BE975D00047D012 /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E532BE975D00047D012 /* NoteRepository.swift */; };
-		35581E552BE975D00047D012 /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E532BE975D00047D012 /* NoteRepository.swift */; };
 		35581E572BE975E40047D012 /* NoteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E562BE975E40047D012 /* NoteFeature.swift */; };
 		35581E582BE975E40047D012 /* NoteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E562BE975E40047D012 /* NoteFeature.swift */; };
 		35581E5A2BE9764A0047D012 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E592BE9764A0047D012 /* NoteView.swift */; };
@@ -42,6 +38,8 @@
 		35D5F0C92BF9420200FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35F34C002C0FB4AE000EE97D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* AppView.swift */; };
 		35F34C012C0FB4AE000EE97D /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */; };
+		35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C072C0FB611000EE97D /* DayRepository.swift */; };
+		35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C082C0FB611000EE97D /* NoteRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +72,10 @@
 		352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3551E4872BEACDD200DE61C4 /* DayFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFeature.swift; sourceTree = "<group>"; };
 		3551E4892BEAD07B00DE61C4 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		3551E48C2BEC158F00DE61C4 /* DayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRepository.swift; sourceTree = "<group>"; };
 		3551E4902BEC178100DE61C4 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDatabase.swift; sourceTree = "<group>"; };
 		35581E4D2BE9754A0047D012 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		35581E502BE975760047D012 /* NoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDatabase.swift; sourceTree = "<group>"; };
-		35581E532BE975D00047D012 /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
 		35581E562BE975E40047D012 /* NoteFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFeature.swift; sourceTree = "<group>"; };
 		35581E592BE9764A0047D012 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemExtention.swift; sourceTree = "<group>"; };
@@ -88,6 +84,8 @@
 		35D5F0C62BF941F400FF9ACB /* NoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
 		35F34BFE2C0FB4AE000EE97D /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
+		35F34C072C0FB611000EE97D /* DayRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayRepository.swift; sourceTree = "<group>"; };
+		35F34C082C0FB611000EE97D /* NoteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +138,7 @@
 		352B69A92BE827ED0055F436 /* fokusable */ = {
 			isa = PBXGroup;
 			children = (
+				35F34C0B2C0FB616000EE97D /* repository */,
 				35F34BFF2C0FB4AE000EE97D /* AppFeature.swift */,
 				35F34BFE2C0FB4AE000EE97D /* AppView.swift */,
 				35581E4A2BE975240047D012 /* feature */,
@@ -204,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				3551E48F2BEC176500DE61C4 /* db */,
-				3551E48C2BEC158F00DE61C4 /* DayRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -231,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				35581E4C2BE975380047D012 /* db */,
-				35581E532BE975D00047D012 /* NoteRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -259,6 +256,15 @@
 				35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */,
 			);
 			path = note;
+			sourceTree = "<group>";
+		};
+		35F34C0B2C0FB616000EE97D /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				35F34C072C0FB611000EE97D /* DayRepository.swift */,
+				35F34C082C0FB611000EE97D /* NoteRepository.swift */,
+			);
+			path = repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,9 +408,9 @@
 				35581E572BE975E40047D012 /* NoteFeature.swift in Sources */,
 				3551E48A2BEAD07B00DE61C4 /* DayView.swift in Sources */,
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
-				3551E48D2BEC158F00DE61C4 /* DayRepository.swift in Sources */,
+				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
 				35581E5A2BE9764A0047D012 /* NoteView.swift in Sources */,
-				35581E542BE975D00047D012 /* NoteRepository.swift in Sources */,
+				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* FokusableApp.swift in Sources */,
 				3551E4882BEACDD200DE61C4 /* DayFeature.swift in Sources */,
 				35F34C012C0FB4AE000EE97D /* AppFeature.swift in Sources */,
@@ -423,9 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3551E4922BEC178100DE61C4 /* Day.swift in Sources */,
-				3551E48E2BEC158F00DE61C4 /* DayRepository.swift in Sources */,
 				35581E522BE975760047D012 /* NoteDatabase.swift in Sources */,
-				35581E552BE975D00047D012 /* NoteRepository.swift in Sources */,
 				352B69BF2BE827EE0055F436 /* fokusableTests.swift in Sources */,
 				35D5F0C82BF941F400FF9ACB /* NoteItem.swift in Sources */,
 				35581E4F2BE9754A0047D012 /* Note.swift in Sources */,
