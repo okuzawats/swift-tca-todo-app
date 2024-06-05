@@ -12,11 +12,13 @@ struct FokusableFeature {
   
   enum Action {
     case onEnter
-    case onFetchedDays([Day])
+    case onFetchedDays(IdentifiedArrayOf<DayItem>)
     case onSelectedDay(DayItem)
   }
   
   @Dependency(\.dayRepository) var dayRepository: DayRepository
+  
+  @Dependency(\.dayMapper) var dayMapper: DayMapper
   
   @Dependency(\.noteRepository) var noteRepository: NoteRepository
   
@@ -44,18 +46,18 @@ struct FokusableFeature {
               let _ = await dayRepository.save(today)
               days.insert(today, at: 0)
             }
-            await send(.onFetchedDays(days))
+            await send(
+              .onFetchedDays(
+                dayMapper.toPresentation(days)
+              )
+            )
           case .failure(let error):
             logger.error("DayRepository#fetchAll failed with \(error)")
           }
         }
         
       case let .onFetchedDays(days):
-        state.days = IdentifiedArrayOf(
-          uniqueElements: days.map { day in
-            DayItem(id: day.id, day: day.date)
-          }
-        )
+        state.days = days
         return .none
         
       case let .onSelectedDay(day):
