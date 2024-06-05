@@ -56,11 +56,11 @@ struct FokusableFeature {
           }
         }
         
-      case let .onFetchedDays(days):
+      case .onFetchedDays(let days):
         state.days = days
         return .none
         
-      case let .onSelectedDay(day):
+      case .onSelectedDay(let day):
         state.items = [
           NoteItem(id: UUID(), bracket: "X", text: "Done!"),
           NoteItem(id: UUID(), bracket: ">", text: "Postponed"),
