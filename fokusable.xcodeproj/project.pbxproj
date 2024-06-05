@@ -25,7 +25,6 @@
 		355987342BF3FFE2005E816A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 355987332BF3FFE2005E816A /* Logging */; };
 		35D3DAA22BF40B1F001D89B8 /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */; };
-		35D5F0C32BF55BD900FF9ACB /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35D5F0C72BF941F400FF9ACB /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
 		35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */; };
@@ -131,7 +130,6 @@
 				35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */,
 				35F34C0C2C0FB6C7000EE97D /* day */,
 				35F34C0D2C0FB6D8000EE97D /* note */,
-				35581E4A2BE975240047D012 /* feature */,
 				352B69B02BE827ED0055F436 /* Assets.xcassets */,
 				352B69B22BE827ED0055F436 /* fokusable.entitlements */,
 				352B69B32BE827ED0055F436 /* Preview Content */,
@@ -163,22 +161,6 @@
 				352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */,
 			);
 			path = fokusableUITests;
-			sourceTree = "<group>";
-		};
-		3551E4842BEACD0D00DE61C4 /* note */ = {
-			isa = PBXGroup;
-			children = (
-				35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */,
-			);
-			path = note;
-			sourceTree = "<group>";
-		};
-		35581E4A2BE975240047D012 /* feature */ = {
-			isa = PBXGroup;
-			children = (
-				3551E4842BEACD0D00DE61C4 /* note */,
-			);
-			path = feature;
 			sourceTree = "<group>";
 		};
 		35D3DAA52BF5596F001D89B8 /* feature */ = {
@@ -213,6 +195,7 @@
 				35F34C0F2C0FB843000EE97D /* database */,
 				35F34C082C0FB611000EE97D /* NoteRepository.swift */,
 				35D5F0C62BF941F400FF9ACB /* NoteItem.swift */,
+				35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */,
 			);
 			path = note;
 			sourceTree = "<group>";
@@ -397,7 +380,6 @@
 				352B69BF2BE827EE0055F436 /* fokusableTests.swift in Sources */,
 				35581E4F2BE9754A0047D012 /* Note.swift in Sources */,
 				35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */,
-				35D5F0C32BF55BD900FF9ACB /* NoteItemExtention.swift in Sources */,
 				3551E4952BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
