@@ -9,17 +9,17 @@ struct FokusableFeature {
     var days: IdentifiedArrayOf<DayItem> = []
     var items: IdentifiedArrayOf<NoteItem> = []
   }
-
+  
   enum Action {
     case onEnter
     case onFetchedDays([Day])
     case onSelectedDay(DayItem)
   }
-
+  
   @Dependency(\.dayRepository) var dayRepository: DayRepository
-
+  
   @Dependency(\.noteRepository) var noteRepository: NoteRepository
-
+  
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
@@ -32,7 +32,7 @@ struct FokusableFeature {
             let dateOfToday = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
-
+            
             let hasCreatedToday = days.contains(where: { day in
               day.date == formatter.string(from: dateOfToday)
             })
@@ -49,7 +49,7 @@ struct FokusableFeature {
             logger.error("DayRepository#fetchAll failed with \(error)")
           }
         }
-
+        
       case let .onFetchedDays(days):
         state.days = IdentifiedArrayOf(
           uniqueElements: days.map { day in
@@ -57,12 +57,12 @@ struct FokusableFeature {
           }
         )
         return .none
-
+        
       case let .onSelectedDay(day: DayItem):
         return .none
       }
     }
   }
-
+  
   private let logger = Logger(label: "FokusableFeature")
 }
