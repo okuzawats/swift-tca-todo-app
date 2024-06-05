@@ -13,7 +13,7 @@ struct FokusableFeature {
   enum Action {
     case onEnter
     case onFetchedDays([Day])
-    case onDaySelected(DayItem)
+    case onSelectedDay(DayItem)
   }
 
   @Dependency(\.dayRepository) var dayRepository: DayRepository
@@ -58,7 +58,7 @@ struct FokusableFeature {
         )
         return .none
 
-      case let .onDaySelected(day: DayItem):
+      case let .onSelectedDay(day: DayItem):
         return .none
       }
     }
