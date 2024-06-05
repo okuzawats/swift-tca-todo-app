@@ -14,7 +14,6 @@
 		352B69C92BE827EE0055F436 /* fokusableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69C82BE827EE0055F436 /* fokusableUITests.swift */; };
 		352B69CB2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */; };
 		352B69D92BE828900055F436 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 352B69D82BE828900055F436 /* ComposableArchitecture */; };
-		3551E4882BEACDD200DE61C4 /* DayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4872BEACDD200DE61C4 /* DayFeature.swift */; };
 		3551E4912BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4922BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */; };
@@ -28,7 +27,6 @@
 		355987342BF3FFE2005E816A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 355987332BF3FFE2005E816A /* Logging */; };
 		35D3DAA22BF40B1F001D89B8 /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */; };
-		35D5F0C22BF55A6800FF9ACB /* DayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4872BEACDD200DE61C4 /* DayFeature.swift */; };
 		35D5F0C32BF55BD900FF9ACB /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35D5F0C72BF941F400FF9ACB /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
@@ -66,7 +64,6 @@
 		352B69C42BE827EE0055F436 /* fokusableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fokusableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		352B69C82BE827EE0055F436 /* fokusableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITests.swift; sourceTree = "<group>"; };
 		352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3551E4872BEACDD200DE61C4 /* DayFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFeature.swift; sourceTree = "<group>"; };
 		3551E4902BEC178100DE61C4 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDatabase.swift; sourceTree = "<group>"; };
 		35581E4D2BE9754A0047D012 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -181,26 +178,9 @@
 			path = note;
 			sourceTree = "<group>";
 		};
-		3551E4852BEACDAD00DE61C4 /* day */ = {
-			isa = PBXGroup;
-			children = (
-				3551E48B2BEC157500DE61C4 /* repository */,
-				3551E4872BEACDD200DE61C4 /* DayFeature.swift */,
-			);
-			path = day;
-			sourceTree = "<group>";
-		};
-		3551E48B2BEC157500DE61C4 /* repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = repository;
-			sourceTree = "<group>";
-		};
 		35581E4A2BE975240047D012 /* feature */ = {
 			isa = PBXGroup;
 			children = (
-				3551E4852BEACDAD00DE61C4 /* day */,
 				3551E4842BEACD0D00DE61C4 /* note */,
 			);
 			path = feature;
@@ -410,7 +390,6 @@
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* FokusableApp.swift in Sources */,
-				3551E4882BEACDD200DE61C4 /* DayFeature.swift in Sources */,
 				35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */,
 				35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */,
 				3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
@@ -433,7 +412,6 @@
 				35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */,
 				35581E582BE975E40047D012 /* NoteFeature.swift in Sources */,
 				35D5F0C32BF55BD900FF9ACB /* NoteItemExtention.swift in Sources */,
-				35D5F0C22BF55A6800FF9ACB /* DayFeature.swift in Sources */,
 				3551E4952BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
