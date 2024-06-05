@@ -12,7 +12,7 @@ struct FokusableFeature {
 
   enum Action {
     case onEnter
-    case onDaysFetched([Day])
+    case onFetchedDays([Day])
     case onDaySelected
   }
 
@@ -44,13 +44,13 @@ struct FokusableFeature {
               let _ = await dayRepository.save(today)
               days.insert(today, at: 0)
             }
-            await send(.onDaysFetched(days))
+            await send(.onFetchedDays(days))
           case .failure(let error):
             logger.error("DayRepository#fetchAll failed with \(error)")
           }
         }
 
-      case let .onDaysFetched(days):
+      case let .onFetchedDays(days):
         state.days = IdentifiedArrayOf(
           uniqueElements: days.map { day in
             DayItem(id: day.id, day: day.date)
