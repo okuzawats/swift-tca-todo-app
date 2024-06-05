@@ -58,7 +58,12 @@ struct FokusableFeature {
         )
         return .none
         
-      case let .onSelectedDay(day: DayItem):
+      case let .onSelectedDay(day):
+        state.items = [
+          NoteItem(id: UUID(), bracket: "X", text: "Done!"),
+          NoteItem(id: UUID(), bracket: ">", text: "Postponed"),
+          NoteItem(id: UUID(), bracket: "  ", text: "\(day.id)"),
+        ]
         return .none
       }
     }

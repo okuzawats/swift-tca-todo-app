@@ -14,20 +14,18 @@ struct FokusableView: View {
               store.send(.onSelectedDay(item))
             }
         }
-      }.onAppear {
-        store.send(.onEnter)
       }
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
     } detail: {
       List {
-        //        ForEach(store.items) { item in
-        //          Text(item.toPresentation())
-        //            .padding(.bottom, 4)
-        //        }
+        ForEach(store.items) { item in
+          Text(item.toPresentation())
+            .padding(.bottom, 4)
+        }
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
       .onAppear {
-        //        store.send(.onEntered(UUID())) // TODO fix UUID
+        store.send(.onEnter)
       }
     }
   }
