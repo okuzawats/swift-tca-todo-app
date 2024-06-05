@@ -11,7 +11,7 @@ struct FokusableView: View {
         ForEach(store.days) { item in
           Text("\(item.day)")
             .onTapGesture {
-//              store.send(.onDaySelected(item.id))
+              store.send(.onDaySelected(item))
             }
         }
       }.onAppear {
