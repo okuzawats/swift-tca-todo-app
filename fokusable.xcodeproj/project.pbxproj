@@ -16,6 +16,8 @@
 		352B69D92BE828900055F436 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 352B69D82BE828900055F436 /* ComposableArchitecture */; };
 		353C52D62C11069D0022D094 /* DayMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D52C11069D0022D094 /* DayMapper.swift */; };
 		353C52D72C11069D0022D094 /* DayMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D52C11069D0022D094 /* DayMapper.swift */; };
+		353C52D92C110BFE0022D094 /* FetchAllDaysUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D82C110BFE0022D094 /* FetchAllDaysUseCase.swift */; };
+		353C52DA2C110BFE0022D094 /* FetchAllDaysUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D82C110BFE0022D094 /* FetchAllDaysUseCase.swift */; };
 		3551E4912BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4922BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */; };
@@ -64,6 +66,7 @@
 		352B69C82BE827EE0055F436 /* fokusableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITests.swift; sourceTree = "<group>"; };
 		352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		353C52D52C11069D0022D094 /* DayMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayMapper.swift; sourceTree = "<group>"; };
+		353C52D82C110BFE0022D094 /* FetchAllDaysUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllDaysUseCase.swift; sourceTree = "<group>"; };
 		3551E4902BEC178100DE61C4 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDatabase.swift; sourceTree = "<group>"; };
 		35581E4D2BE9754A0047D012 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 				35F34C072C0FB611000EE97D /* DayRepository.swift */,
 				35D5F0C42BF9419700FF9ACB /* DayItem.swift */,
 				353C52D52C11069D0022D094 /* DayMapper.swift */,
+				353C52D82C110BFE0022D094 /* FetchAllDaysUseCase.swift */,
 			);
 			path = day;
 			sourceTree = "<group>";
@@ -363,6 +367,7 @@
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
+				353C52D92C110BFE0022D094 /* FetchAllDaysUseCase.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* FokusableApp.swift in Sources */,
 				35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */,
 				35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */,
@@ -381,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3551E4922BEC178100DE61C4 /* Day.swift in Sources */,
+				353C52DA2C110BFE0022D094 /* FetchAllDaysUseCase.swift in Sources */,
 				35581E522BE975760047D012 /* NoteDatabase.swift in Sources */,
 				352B69BF2BE827EE0055F436 /* fokusableTests.swift in Sources */,
 				35581E4F2BE9754A0047D012 /* Note.swift in Sources */,

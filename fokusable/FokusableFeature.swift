@@ -15,11 +15,9 @@ struct FokusableFeature {
     case onFetchedDays(IdentifiedArrayOf<DayItem>)
     case onSelectedDay(DayItem)
   }
-  
-  @Dependency(\.dayRepository) var dayRepository: DayRepository
-  
-  @Dependency(\.dayMapper) var dayMapper: DayMapper
-  
+
+  @Dependency(\.fetchAllDaysUseCase) var fetchAllDaysUseCase
+
   @Dependency(\.noteRepository) var noteRepository: NoteRepository
   
   var body: some ReducerOf<Self> {
@@ -28,29 +26,10 @@ struct FokusableFeature {
         
       case .onEnter:
         return .run { send in
-          let allDays = await dayRepository.fetchAll()
+          let allDays = await fetchAllDaysUseCase.invoke()
           switch allDays {
           case .success(var days):
-            let dateOfToday = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            
-            let hasCreatedToday = days.contains(where: { day in
-              day.date == formatter.string(from: dateOfToday)
-            })
-            if !hasCreatedToday {
-              let today = Day(
-                id: UUID(),
-                date: formatter.string(from: dateOfToday)
-              )
-              let _ = await dayRepository.save(today)
-              days.insert(today, at: 0)
-            }
-            await send(
-              .onFetchedDays(
-                dayMapper.toPresentation(days)
-              )
-            )
+            await send(.onFetchedDays(days))
           case .failure(let error):
             logger.error("DayRepository#fetchAll failed with \(error)")
           }
