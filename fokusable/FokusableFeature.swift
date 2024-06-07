@@ -42,7 +42,14 @@ struct FokusableFeature {
       case .onFetchedDays(let days):
         state.days = days
         state.daysError = nil
-        return .none
+        return .run { send in
+          switch await dayFetchingService.fetchToday() {
+          case .success(let today):
+            await send(.onSelectedDay(today))
+          case .failure(let error):
+            await send(.onErroredFetchingNote(error))
+          }
+        }
         
       case .onErroredFetchingDays(let error):
         logger.error("fetching days failed with \(error)")
@@ -58,7 +65,7 @@ struct FokusableFeature {
             await send(.onErroredFetchingNote(error))
           }
         }
-        
+
       case .onFetchedNote(let notes):
         state.notes = notes
         state.notesError = nil

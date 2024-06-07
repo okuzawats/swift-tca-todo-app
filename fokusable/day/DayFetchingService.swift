@@ -6,6 +6,7 @@ struct DayFetchingError: Error {}
 
 struct DayFetchingService {
   var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, DayFetchingError>
+  var fetchToday: () async -> Result<DayItem, DayFetchingError>
 }
 
 extension DayFetchingService: DependencyKey {
@@ -36,6 +37,13 @@ extension DayFetchingService: DependencyKey {
       case .failure(let error):
         return .failure(DayFetchingError())
       }
+    },
+    fetchToday: {
+      // TODO implement loading today
+      return .success(
+        DayItem(id: UUID(), day: "202-06-08")
+      )
+//      return .failure(DayFetchingError())
     }
   )
 }
