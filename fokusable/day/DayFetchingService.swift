@@ -2,10 +2,10 @@ import ComposableArchitecture
 import Dependencies
 import Foundation
 
-struct FetchError: Error {}
+struct DayFetchingError: Error {}
 
 struct DayFetchingService {
-  var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, FetchError>
+  var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, DayFetchingError>
 }
 
 extension DayFetchingService: DependencyKey {
@@ -34,7 +34,7 @@ extension DayFetchingService: DependencyKey {
         }
         return .success(mapper.toPresentation(days))
       case .failure(let error):
-        return .failure(FetchError())
+        return .failure(DayFetchingError())
       }
     }
   )
