@@ -13,11 +13,12 @@ struct FokusableFeature {
   enum Action {
     case onEnter
     case onFetchedDays(IdentifiedArrayOf<DayItem>)
+    case onFetchError(Error)
     case onSelectedDay(DayItem)
   }
-
+  
   @Dependency(\.dayFetchingService) var dayFetchingService
-
+  
   @Dependency(\.noteRepository) var noteRepository: NoteRepository
   
   var body: some ReducerOf<Self> {
@@ -31,12 +32,17 @@ struct FokusableFeature {
           case .success(let days):
             await send(.onFetchedDays(days))
           case .failure(let error):
-            logger.error("fetching a list of day failed with \(error)")
+            await send(.onFetchError(error))
           }
         }
         
       case .onFetchedDays(let days):
         state.days = days
+        return .none
+        
+      case .onFetchError(let error):
+        // TODO notify error to UI
+        logger.error("fetching a list of day failed with \(error)")
         return .none
         
       case .onSelectedDay(let day):
