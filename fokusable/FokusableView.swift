@@ -18,8 +18,8 @@ struct FokusableView: View {
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
     } detail: {
       List {
-        ForEach(store.items) { item in
-          Text(item.toPresentation())
+        ForEach(store.notes) { note in
+          Text(note.toPresentation())
             .padding(.bottom, 4)
         }
       }

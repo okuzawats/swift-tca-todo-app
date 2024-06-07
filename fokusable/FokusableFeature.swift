@@ -7,20 +7,23 @@ struct FokusableFeature {
   @ObservableState
   struct State: Equatable {
     var days: IdentifiedArrayOf<DayItem> = []
-    var items: IdentifiedArrayOf<NoteItem> = []
-    var errorMessage: String? = nil
+    var daysError: String? = nil
+    var notes: IdentifiedArrayOf<NoteItem> = []
+    var notesError: String? = nil
   }
   
   enum Action {
     case onEnter
     case onFetchedDays(IdentifiedArrayOf<DayItem>)
-    case onFetchError(Error)
+    case onErroredFetchingDays(Error)
     case onSelectedDay(DayItem)
+    case onFetchedNote(IdentifiedArrayOf<NoteItem>)
+    case onErroredFetchingNote(Error)
   }
   
-  @Dependency(\.dayFetchingService) var dayFetchingService
+  @Dependency(\.dayFetchingService) var dayFetchingService: DayFetchingService
   
-  @Dependency(\.noteRepository) var noteRepository: NoteRepository
+  @Dependency(\.noteFetchingService) var noteFetchingService: NoteFetchingService
   
   var body: some ReducerOf<Self> {
     Reduce { state, action in
@@ -32,26 +35,38 @@ struct FokusableFeature {
           case .success(let days):
             await send(.onFetchedDays(days))
           case .failure(let error):
-            await send(.onFetchError(error))
+            await send(.onErroredFetchingDays(error))
           }
         }
         
       case .onFetchedDays(let days):
         state.days = days
-        state.errorMessage = nil
+        state.daysError = nil
         return .none
         
-      case .onFetchError(let error):
-        logger.error("fetching a list of day failed with \(error)")
-        state.errorMessage = "Oops! Something happend."
+      case .onErroredFetchingDays(let error):
+        logger.error("fetching days failed with \(error)")
+        state.daysError = "Oops! Something happend."
         return .none
         
       case .onSelectedDay(let day):
-        state.items = [
-          NoteItem(id: UUID(), bracket: "X", text: "Done!"),
-          NoteItem(id: UUID(), bracket: ">", text: "Postponed"),
-          NoteItem(id: UUID(), bracket: "  ", text: "\(day.id)"),
-        ]
+        return .run { send in
+          switch await noteFetchingService.fetchById(day.id) {
+          case .success(let notes):
+            await send(.onFetchedNote(notes))
+          case .failure(let error):
+            await send(.onErroredFetchingNote(error))
+          }
+        }
+        
+      case .onFetchedNote(let notes):
+        state.notes = notes
+        state.notesError = nil
+        return .none
+        
+      case .onErroredFetchingNote(let error):
+        logger.error("fetching notes failed with \(error)")
+        state.notesError = "Oops! Something happend."
         return .none
       }
     }
