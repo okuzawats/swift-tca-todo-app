@@ -31,7 +31,7 @@ struct FokusableFeature {
           case .success(var days):
             await send(.onFetchedDays(days))
           case .failure(let error):
-            logger.error("DayRepository#fetchAll failed with \(error)")
+            logger.error("fetching a list of day failed with \(error)")
           }
         }
         
