@@ -28,7 +28,7 @@ struct FokusableFeature {
         return .run { send in
           let allDays = await dayFetchingService.fetchAll()
           switch allDays {
-          case .success(var days):
+          case .success(let days):
             await send(.onFetchedDays(days))
           case .failure(let error):
             logger.error("fetching a list of day failed with \(error)")
