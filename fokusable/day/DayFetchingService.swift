@@ -4,12 +4,12 @@ import Foundation
 
 struct FetchError: Error {}
 
-struct FetchAllDaysUseCase {
+struct DayFetchingService {
   var invoke: () async -> Result<IdentifiedArrayOf<DayItem>, FetchError>
 }
 
-extension FetchAllDaysUseCase: DependencyKey {
-  static let liveValue: FetchAllDaysUseCase = Self(
+extension DayFetchingService: DependencyKey {
+  static let liveValue: DayFetchingService = Self(
     invoke: {
       @Dependency(\.dayRepository) var repository: DayRepository
       @Dependency(\.dayMapper) var mapper: DayMapper
@@ -41,8 +41,8 @@ extension FetchAllDaysUseCase: DependencyKey {
 }
 
 extension DependencyValues {
-  var fetchAllDaysUseCase: FetchAllDaysUseCase {
-    get { self[FetchAllDaysUseCase.self] }
-    set { self[FetchAllDaysUseCase.self] = newValue }
+  var dayFetchingService: DayFetchingService {
+    get { self[DayFetchingService.self] }
+    set { self[DayFetchingService.self] = newValue }
   }
 }

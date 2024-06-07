@@ -16,7 +16,7 @@ struct FokusableFeature {
     case onSelectedDay(DayItem)
   }
 
-  @Dependency(\.fetchAllDaysUseCase) var fetchAllDaysUseCase
+  @Dependency(\.dayFetchingService) var dayFetchingService
 
   @Dependency(\.noteRepository) var noteRepository: NoteRepository
   
@@ -26,7 +26,7 @@ struct FokusableFeature {
         
       case .onEnter:
         return .run { send in
-          let allDays = await fetchAllDaysUseCase.invoke()
+          let allDays = await dayFetchingService.invoke()
           switch allDays {
           case .success(var days):
             await send(.onFetchedDays(days))
