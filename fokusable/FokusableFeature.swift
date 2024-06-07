@@ -8,6 +8,7 @@ struct FokusableFeature {
   struct State: Equatable {
     var days: IdentifiedArrayOf<DayItem> = []
     var items: IdentifiedArrayOf<NoteItem> = []
+    var errorMessage: String? = nil
   }
   
   enum Action {
@@ -37,11 +38,12 @@ struct FokusableFeature {
         
       case .onFetchedDays(let days):
         state.days = days
+        state.errorMessage = nil
         return .none
         
       case .onFetchError(let error):
-        // TODO notify error to UI
         logger.error("fetching a list of day failed with \(error)")
+        state.errorMessage = "Oops! Something happend."
         return .none
         
       case .onSelectedDay(let day):
