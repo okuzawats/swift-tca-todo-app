@@ -4,10 +4,15 @@ import Logging
 
 @Reducer
 struct FokusableFeature {
+  enum DayState: Equatable {
+    case empty
+    case list(items: IdentifiedArrayOf<DayItem>)
+    case error
+  }
+
   @ObservableState
   struct State: Equatable {
-    var days: IdentifiedArrayOf<DayItem> = []
-    var daysError: String? = nil
+    var dayState: DayState = .empty
     var notes: IdentifiedArrayOf<NoteItem> = []
     var notesError: String? = nil
   }
@@ -40,8 +45,7 @@ struct FokusableFeature {
         }
         
       case .onFetchedDays(let days):
-        state.days = days
-        state.daysError = nil
+        state.dayState = .list(items: days)
         return .run { send in
           switch await dayFetchingService.fetchToday() {
           case .success(let today):
@@ -53,7 +57,7 @@ struct FokusableFeature {
         
       case .onErroredFetchingDays(let error):
         logger.error("fetching days failed with \(error)")
-        state.daysError = "Oops! Something happend."
+        state.dayState = .error
         return .none
         
       case .onSelectedDay(let day):

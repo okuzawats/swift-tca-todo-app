@@ -7,12 +7,21 @@ struct FokusableView: View {
   
   var body: some View {
     NavigationSplitView {
-      List {
-        ForEach(store.days) { item in
-          Text("\(item.day)")
-            .onTapGesture {
-              store.send(.onSelectedDay(item))
+      Group {
+        switch store.dayState {
+        case .empty:
+          EmptyView()
+        case .list(let items):
+          List {
+            ForEach(items) { item in
+              Text("\(item.day)")
+                .onTapGesture {
+                  store.send(.onSelectedDay(item))
+                }
             }
+          }
+        case .error:
+          Text("Oops! Something happend.")
         }
       }
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
