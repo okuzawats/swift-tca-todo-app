@@ -26,10 +26,20 @@ struct FokusableView: View {
       }
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
     } detail: {
-      List {
-        ForEach(store.notes) { note in
-          Text(note.toPresentation())
-            .padding(.bottom, 4)
+      Group {
+        switch store.noteState {
+        case .empty:
+          // FIXME: if use EmptyView, the overall View draw nothing.
+          Text("")
+        case .list(let notes):
+          List {
+            ForEach(notes) { note in
+              Text(note.toPresentation())
+                .padding(.bottom, 4)
+            }
+          }
+        case .error:
+          Text("Oops! Something happend.")
         }
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

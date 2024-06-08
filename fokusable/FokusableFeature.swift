@@ -9,12 +9,17 @@ struct FokusableFeature {
     case list(items: IdentifiedArrayOf<DayItem>)
     case error
   }
-
+  
+  enum NoteState: Equatable {
+    case empty
+    case list(items: IdentifiedArrayOf<NoteItem>)
+    case error
+  }
+  
   @ObservableState
   struct State: Equatable {
     var dayState: DayState = .empty
-    var notes: IdentifiedArrayOf<NoteItem> = []
-    var notesError: String? = nil
+    var noteState: NoteState = .empty
   }
   
   enum Action {
@@ -61,6 +66,7 @@ struct FokusableFeature {
         return .none
         
       case .onSelectedDay(let day):
+        state.noteState = .empty
         return .run { send in
           switch await noteFetchingService.fetchById(day.id) {
           case .success(let notes):
@@ -69,15 +75,14 @@ struct FokusableFeature {
             await send(.onErroredFetchingNote(error))
           }
         }
-
+        
       case .onFetchedNote(let notes):
-        state.notes = notes
-        state.notesError = nil
+        state.noteState = .list(items: notes)
         return .none
         
       case .onErroredFetchingNote(let error):
         logger.error("fetching notes failed with \(error)")
-        state.notesError = "Oops! Something happend."
+        state.noteState = .error
         return .none
       }
     }
