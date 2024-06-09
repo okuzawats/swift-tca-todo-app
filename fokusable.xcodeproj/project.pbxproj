@@ -29,6 +29,10 @@
 		35581E512BE975760047D012 /* NoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E502BE975760047D012 /* NoteDatabase.swift */; };
 		35581E522BE975760047D012 /* NoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E502BE975760047D012 /* NoteDatabase.swift */; };
 		355987342BF3FFE2005E816A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 355987332BF3FFE2005E816A /* Logging */; };
+		35B0AF9B2C16493600019782 /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
+		35B0AF9C2C16494D00019782 /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
+		35B0AF9D2C16495F00019782 /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C072C0FB611000EE97D /* DayRepository.swift */; };
+		35B0AF9E2C16497A00019782 /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D3DAA22BF40B1F001D89B8 /* NoteItemExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */; };
 		35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */; };
 		35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
@@ -390,12 +394,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B0AF9D2C16495F00019782 /* DayRepository.swift in Sources */,
 				3551E4922BEC178100DE61C4 /* Day.swift in Sources */,
 				353C52DD2C13A9390022D094 /* NoteFetchingService.swift in Sources */,
 				353C52DA2C110BFE0022D094 /* DayFetchingService.swift in Sources */,
 				35581E522BE975760047D012 /* NoteDatabase.swift in Sources */,
+				35B0AF9B2C16493600019782 /* NoteItem.swift in Sources */,
 				352B69BF2BE827EE0055F436 /* fokusableTests.swift in Sources */,
+				35B0AF9C2C16494D00019782 /* DayItem.swift in Sources */,
 				35581E4F2BE9754A0047D012 /* Note.swift in Sources */,
+				35B0AF9E2C16497A00019782 /* NoteItemExtention.swift in Sources */,
 				35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */,
 				353C52D72C11069D0022D094 /* DayMapper.swift in Sources */,
 				3551E4952BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
