@@ -49,4 +49,12 @@ struct FokusableView: View {
   }
 }
 
-// TODO implement Preview
+#Preview {
+  FokusableView(
+    store: Store(
+      initialState: FokusableFeature.State()
+    ) {
+      FokusableFeature()
+    }
+  )
+}
