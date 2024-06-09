@@ -15,9 +15,8 @@ struct DayRepository {
 extension DayRepository: DependencyKey {
   static let liveValue: DayRepository = Self(
     fetchAll: {
-      @Dependency(\.dayDatabase.context)
-      var context: ModelContext
-
+      @Dependency(\.dayDatabase.context) var context: ModelContext
+      
       let fetchDispatcher = FetchDescriptor<Day>()
       let allDay: [Day]
       do {
@@ -25,14 +24,13 @@ extension DayRepository: DependencyKey {
       } catch {
         return .failure(.fetchError)
       }
-
-      // TODO transform [Day] to non-db-dependent type
+      
+      // TODO: transform [Day] to non-db-dependent type
       return .success(allDay)
     },
     save: { day in
-      @Dependency(\.dayDatabase.context)
-      var context: ModelContext
-
+      @Dependency(\.dayDatabase.context) var context: ModelContext
+      
       let inserted: Day
       do {
         context.insert(day)
@@ -40,7 +38,7 @@ extension DayRepository: DependencyKey {
       } catch {
         return .failure(.insertionError)
       }
-
+      
       return .success("bar")
     }
   )

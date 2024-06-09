@@ -29,8 +29,8 @@ extension NoteRepository: DependencyKey {
       } catch {
         return .failure(.fetchError)
       }
-
-      // TODO transform Note to non-db-dependent type
+      
+      // TODO: transform Note to non-db-dependent type
       if (allNote.isEmpty) {
         return .failure(.noEntityError)
       } else {
@@ -41,7 +41,7 @@ extension NoteRepository: DependencyKey {
     save: { _ in
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
-
+      
       let inserted: Note
       do {
         context.insert(Note(id: UUID(), text: "foo"))
@@ -49,7 +49,7 @@ extension NoteRepository: DependencyKey {
       } catch {
         return .failure(.insertionError)
       }
-
+      
       return .success("foo")
     }
   )

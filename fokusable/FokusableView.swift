@@ -2,8 +2,7 @@ import ComposableArchitecture
 import SwiftUI
 
 struct FokusableView: View {
-  @Bindable
-  var store: StoreOf<FokusableFeature>
+  @Bindable var store: StoreOf<FokusableFeature>
   
   var body: some View {
     NavigationSplitView {

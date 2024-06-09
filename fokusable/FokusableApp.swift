@@ -10,7 +10,7 @@ struct FokusableApp: App {
     FokusableFeature()
       ._printChanges()
   }
-
+  
   var body: some Scene {
     WindowGroup {
       FokusableView(

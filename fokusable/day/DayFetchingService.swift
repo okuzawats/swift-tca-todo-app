@@ -14,7 +14,7 @@ extension DayFetchingService: DependencyKey {
     fetchAll: {
       @Dependency(\.dayRepository) var repository: DayRepository
       @Dependency(\.dayMapper) var mapper: DayMapper
-
+      
       let allDays = await repository.fetchAll()
       switch allDays {
       case .success(var days):
@@ -39,11 +39,11 @@ extension DayFetchingService: DependencyKey {
       }
     },
     fetchToday: {
-      // TODO implement loading today
+      // TODO: implement loading today
       return .success(
         DayItem(id: UUID(), day: "202-06-08")
       )
-//      return .failure(DayFetchingError())
+      //      return .failure(DayFetchingError())
     }
   )
 }

@@ -7,9 +7,9 @@ final class Note {
     self.id = id
     self.text = text
   }
-
+  
   @Attribute(.unique)
   let id: UUID
-
+  
   let text: String
 }
