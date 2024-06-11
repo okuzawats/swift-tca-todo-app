@@ -161,7 +161,7 @@
 		352B69BD2BE827EE0055F436 /* fokusableTests */ = {
 			isa = PBXGroup;
 			children = (
-				35D3DAA52BF5596F001D89B8 /* feature */,
+				359477F22C18F17800E482D5 /* note */,
 				352B69BE2BE827EE0055F436 /* fokusableTests.swift */,
 			);
 			path = fokusableTests;
@@ -176,15 +176,7 @@
 			path = fokusableUITests;
 			sourceTree = "<group>";
 		};
-		35D3DAA52BF5596F001D89B8 /* feature */ = {
-			isa = PBXGroup;
-			children = (
-				35D3DAA62BF55976001D89B8 /* note */,
-			);
-			path = feature;
-			sourceTree = "<group>";
-		};
-		35D3DAA62BF55976001D89B8 /* note */ = {
+		359477F22C18F17800E482D5 /* note */ = {
 			isa = PBXGroup;
 			children = (
 				35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */,
