@@ -8,11 +8,13 @@ struct DayMapper {
 extension DayMapper: DependencyKey {
   static let liveValue: DayMapper = Self(
     toPresentation: { days in
-      IdentifiedArrayOf(
-        uniqueElements: days.map { day in
+      let elements = days
+        .map { day in
           DayItem(id: day.id, day: day.date)
         }
-      )
+        .sorted(by: >)
+      
+      return IdentifiedArrayOf(uniqueElements: elements)
     }
   )
 }
