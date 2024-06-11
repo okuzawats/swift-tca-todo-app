@@ -41,7 +41,7 @@ extension DayFetchingService: DependencyKey {
     fetchToday: {
       // TODO: implement loading today
       return .success(
-        DayItem(id: UUID(), day: "202-06-08")
+        DayItem(id: UUID(), day: "2024-06-08")
       )
       //      return .failure(DayFetchingError())
     }
