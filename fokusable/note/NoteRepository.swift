@@ -53,6 +53,15 @@ extension NoteRepository: DependencyKey {
       return .success("foo")
     }
   )
+  
+  static let previewValue = Self(
+    fetch: { _ in
+      return .success(Note(id: UUID(), text: "This is a test data."))
+    },
+    save: { _ in
+      return .success("bar")
+    }
+  )
 }
 
 extension DependencyValues {

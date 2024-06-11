@@ -42,6 +42,15 @@ extension DayRepository: DependencyKey {
       return .success("bar")
     }
   )
+
+  static let previewValue = Self(
+    fetchAll: {
+      return .success([])
+    },
+    save: { _ in
+      return .success("baz")
+    }
+  )
 }
 
 extension DependencyValues {
