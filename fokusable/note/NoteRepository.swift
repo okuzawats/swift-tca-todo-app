@@ -31,12 +31,7 @@ extension NoteRepository: DependencyKey {
       }
       
       // TODO: transform Note to non-db-dependent type
-      if (allNote.isEmpty) {
-        //        return .failure(.noEntityError)
-        return .success([])
-      } else {
-        return .success(allNote)
-      }
+      return .success(allNote)
     },
     save: { _ in
       @Dependency(\.noteDatabase.context)
