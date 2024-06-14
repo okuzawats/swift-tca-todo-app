@@ -29,6 +29,7 @@ struct FokusableFeature {
     case onSelectedDay(DayItem)
     case onFetchedNote(IdentifiedArrayOf<NoteItem>)
     case onErroredFetchingNote(Error)
+    case onCheckNote(UUID)
   }
   
   @Dependency(\.dayFetchingService) var dayFetchingService: DayFetchingService
@@ -86,6 +87,22 @@ struct FokusableFeature {
       case .onErroredFetchingNote(let error):
         logger.error("fetching notes failed with \(error)")
         state.noteState = .error
+        return .none
+        
+      case .onCheckNote(let id):
+        switch state.noteState {
+        case .list(let noteItems):
+          state.noteState = .list(
+            items: IdentifiedArrayOf(
+              uniqueElements: noteItems
+                .map { noteItem in
+                  NoteItem(id: noteItem.id, bracket: "X", text: noteItem.text)
+                }
+            )
+          )
+        default:
+          logger.info("illegal state, note should be a list")
+        }
         return .none
       }
     }

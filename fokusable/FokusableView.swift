@@ -36,7 +36,13 @@ struct FokusableView: View {
               HStack {
                 Text("-")
                 Text("[\(note.bracket)]")
+                  .onTapGesture {
+                    store.send(.onCheckNote(note.id))
+                  }
                 Text("\(note.text)")
+                  .onTapGesture {
+                    // TODO
+                  }
               }
               .padding(.bottom, 4)
             }
