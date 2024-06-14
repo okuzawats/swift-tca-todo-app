@@ -9,7 +9,7 @@ enum NoteRepositoryError: Error {
 }
 
 struct NoteRepository {
-  var fetch: (UUID) async -> Result<Note, NoteRepositoryError>
+  var fetch: (UUID) async -> Result<[Note], NoteRepositoryError>
   var save: (Int) async -> Result<String, NoteRepositoryError>
 }
 
@@ -32,10 +32,10 @@ extension NoteRepository: DependencyKey {
       
       // TODO: transform Note to non-db-dependent type
       if (allNote.isEmpty) {
-        return .failure(.noEntityError)
+        //        return .failure(.noEntityError)
+        return .success([])
       } else {
-        let note = allNote[0]
-        return .success(note)
+        return .success(allNote)
       }
     },
     save: { _ in
@@ -56,7 +56,7 @@ extension NoteRepository: DependencyKey {
   
   static let previewValue = Self(
     fetch: { _ in
-      return .success(Note(id: UUID(), text: "This is a test data."))
+      return .success([Note(id: UUID(), text: "This is a test data.")])
     },
     save: { _ in
       return .success("bar")

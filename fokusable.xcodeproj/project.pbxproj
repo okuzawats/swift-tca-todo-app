@@ -30,6 +30,8 @@
 		35581E522BE975760047D012 /* NoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581E502BE975760047D012 /* NoteDatabase.swift */; };
 		355987342BF3FFE2005E816A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 355987332BF3FFE2005E816A /* Logging */; };
 		359477F52C18F1C800E482D5 /* DayItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359477F42C18F1C800E482D5 /* DayItemTests.swift */; };
+		35ABD9C42C1C755B008F3EAB /* NoteMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABD9C32C1C755B008F3EAB /* NoteMapper.swift */; };
+		35ABD9C52C1C755B008F3EAB /* NoteMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABD9C32C1C755B008F3EAB /* NoteMapper.swift */; };
 		35B0AF9B2C16493600019782 /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
 		35B0AF9C2C16494D00019782 /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35B0AF9D2C16495F00019782 /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C072C0FB611000EE97D /* DayRepository.swift */; };
@@ -80,6 +82,7 @@
 		35581E4D2BE9754A0047D012 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		35581E502BE975760047D012 /* NoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDatabase.swift; sourceTree = "<group>"; };
 		359477F42C18F1C800E482D5 /* DayItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItemTests.swift; sourceTree = "<group>"; };
+		35ABD9C32C1C755B008F3EAB /* NoteMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteMapper.swift; sourceTree = "<group>"; };
 		35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemExtention.swift; sourceTree = "<group>"; };
 		35D3DAA72BF559A2001D89B8 /* NoteItemExtentionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemExtentionTests.swift; sourceTree = "<group>"; };
 		35D5F0C42BF9419700FF9ACB /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 				35D5F0C62BF941F400FF9ACB /* NoteItem.swift */,
 				35D3DAA12BF40B1F001D89B8 /* NoteItemExtention.swift */,
 				353C52DB2C13A9390022D094 /* NoteFetchingService.swift */,
+				35ABD9C32C1C755B008F3EAB /* NoteMapper.swift */,
 			);
 			path = note;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				353C52D92C110BFE0022D094 /* DayFetchingService.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* FokusableApp.swift in Sources */,
+				35ABD9C42C1C755B008F3EAB /* NoteMapper.swift in Sources */,
 				35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */,
 				35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */,
 				3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
@@ -409,6 +414,7 @@
 				35581E4F2BE9754A0047D012 /* Note.swift in Sources */,
 				35B0AF9E2C16497A00019782 /* NoteItemExtention.swift in Sources */,
 				35D3DAA82BF559A2001D89B8 /* NoteItemExtentionTests.swift in Sources */,
+				35ABD9C52C1C755B008F3EAB /* NoteMapper.swift in Sources */,
 				353C52D72C11069D0022D094 /* DayMapper.swift in Sources */,
 				3551E4952BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,
 			);

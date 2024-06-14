@@ -11,14 +11,16 @@ struct NoteFetchingService {
 extension NoteFetchingService: DependencyKey {
   static let liveValue: NoteFetchingService = Self(
     fetchById: { id in
-      return .success(
-        [
-          NoteItem(id: UUID(), bracket: "X", text: "Done!"),
-          NoteItem(id: UUID(), bracket: ">", text: "Postponed"),
-          NoteItem(id: UUID(), bracket: "  ", text: "TODO"),
-        ]
-      )
-      //      return .failure(NoteFetchingError())
+      @Dependency(\.noteRepository) var repository: NoteRepository
+      @Dependency(\.noteMapper) var mapper: NoteMapper
+      
+      let notes = await repository.fetch(id)
+      switch notes {
+      case .success(let note):
+        return .success(mapper.toPresentation(note))
+      case .failure(let error):
+        return .failure(NoteFetchingError())
+      }
     }
   )
 }
