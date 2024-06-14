@@ -33,8 +33,12 @@ struct FokusableView: View {
         case .list(let notes):
           List {
             ForEach(notes) { note in
-              Text(note.toPresentation())
-                .padding(.bottom, 4)
+              HStack {
+                Text("-")
+                Text("[\(note.bracket)]")
+                Text("\(note.text)")
+              }
+              .padding(.bottom, 4)
             }
           }
         case .error:
