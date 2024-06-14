@@ -96,7 +96,13 @@ struct FokusableFeature {
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
                 .map { noteItem in
-                  NoteItem(id: noteItem.id, bracket: "X", text: noteItem.text)
+                  // filter note not changed
+                  if noteItem.id != id {
+                    return noteItem
+                  }
+
+                  let bracket = noteItem.bracket == " " ? "X" : " "
+                  return NoteItem(id: noteItem.id, bracket: bracket, text: noteItem.text)
                 }
             )
           )
