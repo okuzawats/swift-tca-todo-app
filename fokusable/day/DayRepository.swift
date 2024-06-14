@@ -8,7 +8,7 @@ enum DayRepositoryError: Error {
 }
 
 struct DayRepository {
-  var fetchAll: () async -> Result<Array<Day>, DayRepositoryError>
+  var fetchAll: () async -> Result<[Day], DayRepositoryError>
   var save: (Day) async -> Result<String, DayRepositoryError>
 }
 
