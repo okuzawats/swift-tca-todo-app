@@ -69,7 +69,10 @@ struct FokusableFeature {
         state.noteState = .empty
         return .run { send in
           switch await noteFetchingService.fetchById(day.id) {
-          case .success(let notes):
+          case .success(var notes):
+            // add empty note to show input field
+            let emptyNote = NoteItem(id: UUID(), bracket: " ", text: "")
+            notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
             await send(.onErroredFetchingNote(error))
