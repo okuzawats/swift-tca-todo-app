@@ -10,7 +10,7 @@ extension NoteMapper: DependencyKey {
     toPresentation: { note in
       let elements = note
         .map { line in
-          NoteItem(id: line.id, bracket: "x", text: line.text)
+          NoteItem(id: line.id, bracket: "x", text: line.text, isEdit: false)
         }
       return IdentifiedArrayOf(uniqueElements: elements)
     }

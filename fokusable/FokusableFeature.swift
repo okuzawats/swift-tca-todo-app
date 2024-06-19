@@ -29,6 +29,7 @@ struct FokusableFeature {
     case onSelectedDay(DayItem)
     case onFetchedNote(IdentifiedArrayOf<NoteItem>)
     case onErroredFetchingNote(Error)
+    case onEditNote(UUID)
     case onCheckNote(UUID)
   }
   
@@ -72,7 +73,7 @@ struct FokusableFeature {
           switch await noteFetchingService.fetchById(day.id) {
           case .success(var notes):
             // add empty note to show input field
-            let emptyNote = NoteItem(id: UUID(), bracket: " ", text: "")
+            let emptyNote = NoteItem(id: UUID(), bracket: " ", text: "", isEdit: false)
             notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
@@ -100,9 +101,9 @@ struct FokusableFeature {
                   if noteItem.id != id {
                     return noteItem
                   }
-
+                  
                   let bracket = noteItem.bracket == " " ? "X" : " "
-                  return NoteItem(id: noteItem.id, bracket: bracket, text: noteItem.text)
+                  return NoteItem(id: noteItem.id, bracket: bracket, text: noteItem.text, isEdit: false)
                 }
             )
           )
