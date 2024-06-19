@@ -4,6 +4,8 @@ import SwiftUI
 struct FokusableView: View {
   @Bindable var store: StoreOf<FokusableFeature>
   
+  @State var text = ""
+  
   var body: some View {
     NavigationSplitView {
       Group {
@@ -40,11 +42,18 @@ struct FokusableView: View {
                     store.send(.onCheckNote(note.id))
                   }
                 if (note.isEdit) {
-                  Text("isEdit")
+                  TextField(
+                    "Enter text",
+                    text: $text
+                  )
+                  .textFieldStyle(DefaultTextFieldStyle())
+                  .onSubmit {
+                    // TODO
+                  }
                 } else {
                   Text("\(note.text)")
                     .frame(maxWidth: .infinity)
-                    // need this line to activate tap gesture
+                  // need this line to activate tap gesture
                     .background(.white)
                     .onTapGesture {
                       store.send(.onEditNote(note.id))

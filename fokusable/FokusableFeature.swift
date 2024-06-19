@@ -20,6 +20,7 @@ struct FokusableFeature {
   struct State: Equatable {
     var dayState: DayState = .empty
     var noteState: NoteState = .empty
+    var text: String = ""
   }
   
   enum Action {
@@ -31,6 +32,7 @@ struct FokusableFeature {
     case onErroredFetchingNote(Error)
     case onEditNote(UUID)
     case onCheckNote(UUID)
+    case onTextChanged(String)
   }
   
   @Dependency(\.dayFetchingService) var dayFetchingService: DayFetchingService
@@ -131,6 +133,10 @@ struct FokusableFeature {
         default:
           logger.info("illegal state, note should be a list")
         }
+        return .none
+        
+      case .onTextChanged(let text):
+        state.text = text
         return .none
       }
     }
