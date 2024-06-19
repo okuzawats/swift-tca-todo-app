@@ -39,10 +39,17 @@ struct FokusableView: View {
                   .onTapGesture {
                     store.send(.onCheckNote(note.id))
                   }
-                Text("\(note.text)")
-                  .onTapGesture {
-                    // TODO
-                  }
+                if (note.isEdit) {
+                  Text("isEdit")
+                } else {
+                  Text("\(note.text)")
+                    .frame(maxWidth: .infinity)
+                    // need this line to activate tap gesture
+                    .background(.white)
+                    .onTapGesture {
+                      store.send(.onEditNote(note.id))
+                    }
+                }
               }
               .padding(.bottom, 4)
             }

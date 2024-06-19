@@ -90,6 +90,27 @@ struct FokusableFeature {
         state.noteState = .error
         return .none
         
+      case .onEditNote(let id):
+        switch state.noteState {
+        case .list(let noteItems):
+          state.noteState = .list(
+            items: IdentifiedArrayOf(
+              uniqueElements: noteItems
+                .map { noteItem in
+                  // filter note not changed
+                  if noteItem.id != id {
+                    return noteItem
+                  }
+                  
+                  return NoteItem(id: noteItem.id, bracket: noteItem.bracket, text: noteItem.text, isEdit: true)
+                }
+            )
+          )
+        default:
+          logger.info("illegal state, note should be a list")
+        }
+        return .none
+        
       case .onCheckNote(let id):
         switch state.noteState {
         case .list(let noteItems):
