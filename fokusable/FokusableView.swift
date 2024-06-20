@@ -49,7 +49,7 @@ struct FokusableView: View {
                   )
                   .textFieldStyle(DefaultTextFieldStyle())
                   .onSubmit {
-                    // TODO
+                    store.send(.onSaveNote(note.id, text))
                   }
                 } else {
                   Text("\(note.text)")

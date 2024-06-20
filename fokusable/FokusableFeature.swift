@@ -145,7 +145,7 @@ struct FokusableFeature {
                   if noteItem.id != id {
                     return noteItem
                   }
-                  
+
                   return NoteItem(id: noteItem.id, bracket: noteItem.bracket, text: text, isEdit: false)
                 }
             )
