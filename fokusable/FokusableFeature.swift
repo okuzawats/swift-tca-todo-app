@@ -136,7 +136,12 @@ struct FokusableFeature {
         
       case .onSaveNote(let id, let text):
         switch state.noteState {
-        case .list(let noteItems):
+        case .list(var noteItems):
+          if text != "" {
+            noteItems.append(
+              NoteItem(id: UUID(), bracket: " ", text: "", isEdit: true)
+            )
+          }
           state.noteState = .list(
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
