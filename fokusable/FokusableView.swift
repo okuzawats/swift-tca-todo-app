@@ -53,7 +53,7 @@ struct FokusableView: View {
                   }
                 } else {
                   Text("\(note.text)")
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                   // need this line to activate tap gesture
                     .background(.white)
                     .onTapGesture {
