@@ -30,8 +30,9 @@ struct FokusableView: View {
       Group {
         switch store.noteState {
         case .empty:
-          // FIXME: if use EmptyView, the overall View draw nothing.
+          // need this line to display overall view
           Text("")
+          
         case .list(let notes):
           List {
             ForEach(notes) { note in
@@ -63,6 +64,7 @@ struct FokusableView: View {
               .padding(.bottom, 4)
             }
           }
+          
         case .error:
           Text("Oops! Something happend.")
         }
