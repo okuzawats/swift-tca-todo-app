@@ -4,6 +4,7 @@ import SwiftUI
 struct FokusableView: View {
   @Bindable var store: StoreOf<FokusableFeature>
   
+  // TODO: integrate to store
   @State var text = ""
   
   var body: some View {
@@ -50,6 +51,8 @@ struct FokusableView: View {
                   .textFieldStyle(DefaultTextFieldStyle())
                   .onSubmit {
                     store.send(.onSaveNote(note.id, text))
+                    // reset text after saved
+                    text = ""
                   }
                 } else {
                   Text("\(note.text)")
