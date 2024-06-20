@@ -6,6 +6,7 @@ struct FokusableView: View {
   
   // TODO: integrate to store
   @State var text = ""
+  @FocusState var focus: Bool?
   
   var body: some View {
     NavigationSplitView {
@@ -49,10 +50,17 @@ struct FokusableView: View {
                     text: $text
                   )
                   .textFieldStyle(DefaultTextFieldStyle())
+                  .focused($focus, equals: true)
                   .onSubmit {
                     store.send(.onSaveNote(note.id, text))
                     // reset text after saved
                     text = ""
+                  }
+                  .onAppear {
+                    focus = true
+                  }
+                  .onDisappear {
+                    focus = nil
                   }
                 } else {
                   Text("\(note.text)")
