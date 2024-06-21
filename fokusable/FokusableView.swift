@@ -74,6 +74,7 @@ struct FokusableView: View {
                     }
                 }
               }
+              .listRowSeparator(.hidden)
               .padding(.bottom, 4)
             }
           }
