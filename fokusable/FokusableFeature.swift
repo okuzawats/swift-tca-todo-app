@@ -71,7 +71,9 @@ struct FokusableFeature {
       case .onSelectedDay(let day):
         state.noteState = .empty
         return .run { send in
-          switch await noteFetchingService.fetchById(day.id) {
+          let fetchedNotes = await noteFetchingService.fetchById(day.id)
+          logger.info("fetched notes = \(fetchedNotes)")
+          switch fetchedNotes {
           case .success(var notes):
             // add empty note to show input field
             let emptyNote = NoteItem(id: UUID(), bracket: " ", text: "", isEdit: false)
