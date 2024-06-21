@@ -44,7 +44,7 @@ extension NoteRepository: DependencyKey {
         return .failure(.insertionError)
       }
       
-      return .success(()) // return Void
+      return .success(())
     }
   )
   
