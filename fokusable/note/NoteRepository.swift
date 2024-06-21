@@ -10,7 +10,7 @@ enum NoteRepositoryError: Error {
 
 struct NoteRepository {
   var fetch: (UUID) async -> Result<[Note], NoteRepositoryError>
-  var save: (Int) async -> Result<String, NoteRepositoryError>
+  var save: (Note) async -> Result<Void, NoteRepositoryError>
 }
 
 extension NoteRepository: DependencyKey {
@@ -33,28 +33,27 @@ extension NoteRepository: DependencyKey {
       // TODO: transform Note to non-db-dependent type
       return .success(allNote)
     },
-    save: { _ in
+    save: { note in
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
       
-      let inserted: Note
       do {
-        context.insert(Note(id: UUID(), text: "foo"))
+        context.insert(note)
         try context.save()
       } catch {
         return .failure(.insertionError)
       }
       
-      return .success("foo")
+      return .success(()) // return Void
     }
   )
   
   static let previewValue = Self(
     fetch: { _ in
-      return .success([Note(id: UUID(), text: "This is a test data.")])
+      return .success([Note(id: UUID(), bracket: "x", text: "This is a test data.")])
     },
     save: { _ in
-      return .success("bar")
+      return .success(())
     }
   )
 }
