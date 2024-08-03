@@ -11,7 +11,7 @@ extension NoteMapper: DependencyKey {
     toPresentation: { note in
       let elements = note
         .map { line in
-          NoteItem(id: line.id, bracket: line.bracket, text: line.text, isEdit: false)
+          NoteItem(id: line.id, isChecked: line.bracket == "X", bracket: line.bracket, text: line.text, isEdit: false)
         }
       return IdentifiedArrayOf(uniqueElements: elements)
     },

@@ -39,11 +39,11 @@ struct FokusableView: View {
           List {
             ForEach(notes) { note in
               HStack {
-                Text("-")
-                Text("[\(note.bracket)]")
+                CheckBox(isChecked: note.isChecked)
                   .onTapGesture {
                     store.send(.onCheckNote(note.id))
                   }
+                
                 if (note.isEdit) {
                   TextField(
                     "Enter text",

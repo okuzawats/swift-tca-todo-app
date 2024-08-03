@@ -76,7 +76,7 @@ struct FokusableFeature {
           switch fetchedNotes {
           case .success(var notes):
             // add empty note to show input field
-            let emptyNote = NoteItem(id: UUID(), bracket: " ", text: "", isEdit: false)
+            let emptyNote = NoteItem(id: UUID(), isChecked: false, bracket: " ", text: "", isEdit: false)
             notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
@@ -105,7 +105,7 @@ struct FokusableFeature {
                     return noteItem
                   }
                   
-                  return NoteItem(id: noteItem.id, bracket: noteItem.bracket, text: noteItem.text, isEdit: true)
+                  return NoteItem(id: noteItem.id, isChecked: noteItem.bracket == "X", bracket: noteItem.bracket, text: noteItem.text, isEdit: true)
                 }
             )
           )
@@ -127,7 +127,7 @@ struct FokusableFeature {
                   }
                   
                   let bracket = noteItem.bracket == " " ? "X" : " "
-                  return NoteItem(id: noteItem.id, bracket: bracket, text: noteItem.text, isEdit: false)
+                  return NoteItem(id: noteItem.id, isChecked: bracket == "X", bracket: bracket, text: noteItem.text, isEdit: false)
                 }
             )
           )
@@ -141,7 +141,7 @@ struct FokusableFeature {
         case .list(var noteItems):
           if text != "" {
             noteItems.append(
-              NoteItem(id: UUID(), bracket: " ", text: "", isEdit: true)
+              NoteItem(id: UUID(), isChecked: false, bracket: " ", text: "", isEdit: true)
             )
           }
           state.noteState = .list(
@@ -153,7 +153,7 @@ struct FokusableFeature {
                     return noteItem
                   }
 
-                  return NoteItem(id: noteItem.id, bracket: noteItem.bracket, text: text, isEdit: false)
+                  return NoteItem(id: noteItem.id, isChecked: noteItem.bracket == "X", bracket: noteItem.bracket, text: text, isEdit: false)
                 }
             )
           )
