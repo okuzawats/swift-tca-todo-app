@@ -76,7 +76,7 @@ struct FokusableFeature {
           switch fetchedNotes {
           case .success(var notes):
             // add empty note to show input field
-            let emptyNote = NoteItem(id: UUID(), isChecked: false, bracket: " ", text: "", isEdit: false)
+            let emptyNote = NoteItem(id: UUID(), isDone: false, text: "", isEdit: false)
             notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
@@ -105,7 +105,7 @@ struct FokusableFeature {
                     return noteItem
                   }
                   
-                  return NoteItem(id: noteItem.id, isChecked: noteItem.bracket == "X", bracket: noteItem.bracket, text: noteItem.text, isEdit: true)
+                  return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: noteItem.text, isEdit: true)
                 }
             )
           )
@@ -126,8 +126,7 @@ struct FokusableFeature {
                     return noteItem
                   }
                   
-                  let bracket = noteItem.bracket == " " ? "X" : " "
-                  return NoteItem(id: noteItem.id, isChecked: bracket == "X", bracket: bracket, text: noteItem.text, isEdit: false)
+                  return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: noteItem.text, isEdit: false)
                 }
             )
           )
@@ -140,10 +139,12 @@ struct FokusableFeature {
         switch state.noteState {
         case .list(var noteItems):
           if text != "" {
+            // ノートが保存された時、新たに空のノートを作成する。
             noteItems.append(
-              NoteItem(id: UUID(), isChecked: false, bracket: " ", text: "", isEdit: true)
+              NoteItem(id: UUID(), isDone: false, text: "", isEdit: true)
             )
           }
+
           state.noteState = .list(
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
@@ -152,8 +153,8 @@ struct FokusableFeature {
                   if noteItem.id != id {
                     return noteItem
                   }
-
-                  return NoteItem(id: noteItem.id, isChecked: noteItem.bracket == "X", bracket: noteItem.bracket, text: text, isEdit: false)
+                  
+                  return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: text, isEdit: false)
                 }
             )
           )

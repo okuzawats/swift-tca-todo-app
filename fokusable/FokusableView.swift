@@ -39,7 +39,7 @@ struct FokusableView: View {
           List {
             ForEach(notes) { note in
               HStack {
-                CheckBox(isChecked: note.isChecked)
+                CheckBox(isChecked: note.isDone)
                   .onTapGesture {
                     store.send(.onCheckNote(note.id))
                   }
@@ -67,8 +67,7 @@ struct FokusableView: View {
                     .lineLimit(1)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                  // need this line to activate tap gesture
-                    .background(.white)
+                    .background(.white) // need this line to activate tap gesture
                     .onTapGesture {
                       store.send(.onEditNote(note.id))
                     }
