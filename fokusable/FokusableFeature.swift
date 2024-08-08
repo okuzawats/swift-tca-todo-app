@@ -25,16 +25,16 @@ struct FokusableFeature {
   enum Action {
     // Viewが表示された時
     case onEnter
-    // 日付データの読み込みが完了した時
+    // 日付データの取得が完了した時
     case onFetchedDays(IdentifiedArrayOf<DayItem>)
-    // 日付データの読み込みに失敗した時
-    case onErroredFetchingDays(Error)
+    // 日付データの取得に失敗した時
+    case onFailedFetchingDays(Error)
     // 日付が選択された時
     case onSelectedDay(DayItem)
-    // ノートの読み込みが完了した時
+    // ノートの取得が完了した時
     case onFetchedNote(IdentifiedArrayOf<NoteItem>)
-    // ノートの読み込みに失敗した時
-    case onErroredFetchingNote(Error)
+    // ノートの取得に失敗した時
+    case onFailedFetchingNote(Error)
     // ノートが編集された時
     case onEditNote(UUID)
     // ノートが完了された時
@@ -52,32 +52,43 @@ struct FokusableFeature {
       switch action {
         
       case .onEnter:
+        // 画面が表示された時、日付を取得する。
+        // 日付の取得に成功した場合はonFetchedDaysを、
+        // 日付の取得に失敗した場合はonFailedFetchingDaysを呼び出す。
         return .run { send in
           switch await dayFetchingService.fetchAll() {
           case .success(let days):
             await send(.onFetchedDays(days))
           case .failure(let error):
-            await send(.onErroredFetchingDays(error))
+            await send(.onFailedFetchingDays(error))
           }
         }
         
       case .onFetchedDays(let days):
+        // 日付データの取得に成功した日付をViewに反映し、さらに当日の日付を取得する。
+        // 当日の日付の取得に成功した場合はonSelectedDayを呼び出す。
+        // 当日の日付の取得に失敗した場合はonFailedFetchingNoteを呼び出す（ノートの取得に失敗した扱いにする）。
         state.dayState = .list(items: days)
         return .run { send in
           switch await dayFetchingService.fetchToday() {
           case .success(let today):
             await send(.onSelectedDay(today))
           case .failure(let error):
-            await send(.onErroredFetchingNote(error))
+            await send(.onFailedFetchingNote(error))
           }
         }
         
-      case .onErroredFetchingDays(let error):
+      case .onFailedFetchingDays(let error):
+        // 日付のエラー状態をViewに反映する。
         logger.error("fetching days failed with \(error)")
         state.dayState = .error
         return .none
         
       case .onSelectedDay(let day):
+        // 選択された日付のノートを取得する。
+        // 当日のノートの取得に成功した場合、空のノートを作成して編集状態とした上、
+        // onFetchedNoteを呼び出す。
+        // 当日のノートの取得に失敗した場合、onFailedFetchingNoteを呼び出す。
         state.noteState = .empty
         return .run { send in
           let fetchedNotes = await noteFetchingService.fetchById(day.id)
@@ -89,20 +100,23 @@ struct FokusableFeature {
             notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
-            await send(.onErroredFetchingNote(error))
+            await send(.onFailedFetchingNote(error))
           }
         }
         
       case .onFetchedNote(let notes):
+        // ノートをViewに反映する。
         state.noteState = .list(items: notes)
         return .none
         
-      case .onErroredFetchingNote(let error):
+      case .onFailedFetchingNote(let error):
+        // ノートのエラー状態をViewに反映する。
         logger.error("fetching notes failed with \(error)")
         state.noteState = .error
         return .none
         
       case .onEditNote(let id):
+        // 対象のノートを編集状態とした上、それ以外のノートの編集状態を解除する。
         switch state.noteState {
         case .list(let noteItems):
           state.noteState = .list(
@@ -129,6 +143,7 @@ struct FokusableFeature {
         return .none
         
       case .onCheckNote(let id):
+        // ノートのチェックボタンが押下された時、チェック状態を反転する。
         switch state.noteState {
         case .list(let noteItems):
           state.noteState = .list(
@@ -151,6 +166,8 @@ struct FokusableFeature {
         return .none
         
       case .onSaveNote(let id, let text):
+        // ノートが保存された時、ノートのテキスト画が空でなければ新たな空のノートを作成する。
+        // 保存されたノートをViewに反映する。
         switch state.noteState {
         case .list(var noteItems):
           if text != "" {
@@ -159,7 +176,7 @@ struct FokusableFeature {
               NoteItem(id: UUID(), isDone: false, text: "", isEdit: true)
             )
           }
-
+          
           state.noteState = .list(
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
