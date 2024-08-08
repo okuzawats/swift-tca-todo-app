@@ -3,10 +3,8 @@ import SwiftUI
 
 struct FokusableView: View {
   @Bindable var store: StoreOf<FokusableFeature>
-  
-  // TODO: integrate to store
-  @State var text = ""
-  @FocusState var focus: Bool?
+  @State var editingText = "" // 編集中のテキスト
+  @FocusState var focus: Bool? // 編集中のTextFieldにフォーカスを与えるために使用する値
   
   var body: some View {
     NavigationSplitView {
@@ -47,16 +45,17 @@ struct FokusableView: View {
                 if (note.isEdit) {
                   TextField(
                     "Enter text",
-                    text: $text
+                    text: $editingText
                   )
                   .textFieldStyle(DefaultTextFieldStyle())
                   .focused($focus, equals: true)
                   .onSubmit {
-                    store.send(.onSaveNote(note.id, text))
+                    store.send(.onSaveNote(note.id, editingText))
                     // reset text after saved
-                    text = ""
+                    editingText = ""
                   }
                   .onAppear {
+                    editingText = note.text
                     focus = true
                   }
                   .onDisappear {
