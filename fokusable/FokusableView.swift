@@ -30,8 +30,7 @@ struct FokusableView: View {
       Group {
         switch store.noteState {
         case .empty:
-          // need this line to display overall view
-          Text("")
+          Text("") // ノートが空の場合にdetailのエリアが潰れないようにするための空のView
           
         case .list(let notes):
           List {
@@ -43,16 +42,12 @@ struct FokusableView: View {
                   }
                 
                 if (note.isEdit) {
-                  TextField(
-                    "Enter text",
-                    text: $editingText
-                  )
+                  TextField("Enter Your TODO here.", text: $editingText)
                   .textFieldStyle(DefaultTextFieldStyle())
                   .focused($focus, equals: true)
                   .onSubmit {
                     store.send(.onSaveNote(note.id, editingText))
-                    // reset text after saved
-                    editingText = ""
+                    editingText = "" // 保存した時、テキストを空にする
                   }
                   .onAppear {
                     editingText = note.text
@@ -66,7 +61,7 @@ struct FokusableView: View {
                     .lineLimit(1)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.white) // need this line to activate tap gesture
+                    .background(.white) // タップを有効化するために必要
                     .onTapGesture {
                       store.send(.onEditNote(note.id))
                     }
