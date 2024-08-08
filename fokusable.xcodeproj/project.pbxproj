@@ -37,6 +37,7 @@
 		35B0AF9D2C16495F00019782 /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C072C0FB611000EE97D /* DayRepository.swift */; };
 		35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35D5F0C72BF941F400FF9ACB /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
+		35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E95FF82C650091009ACB93 /* ErrorView.swift */; };
 		35F1789F2C5E0600009F5129 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1789E2C5E0600009F5129 /* CheckBox.swift */; };
 		35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */; };
 		35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */; };
@@ -83,6 +84,7 @@
 		35ABD9C32C1C755B008F3EAB /* NoteMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteMapper.swift; sourceTree = "<group>"; };
 		35D5F0C42BF9419700FF9ACB /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
 		35D5F0C62BF941F400FF9ACB /* NoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
+		35E95FF82C650091009ACB93 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		35F1789E2C5E0600009F5129 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableView.swift; sourceTree = "<group>"; };
 		35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableFeature.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				352B69B22BE827ED0055F436 /* fokusable.entitlements */,
 				352B69B32BE827ED0055F436 /* Preview Content */,
 				35F1789E2C5E0600009F5129 /* CheckBox.swift */,
+				35E95FF82C650091009ACB93 /* ErrorView.swift */,
 			);
 			path = fokusable;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
 				353C52DC2C13A9390022D094 /* NoteFetchingService.swift in Sources */,
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
+				35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */,
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				353C52D92C110BFE0022D094 /* DayFetchingService.swift in Sources */,
 				352B69AB2BE827ED0055F436 /* FokusableApp.swift in Sources */,

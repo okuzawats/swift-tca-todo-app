@@ -22,7 +22,7 @@ struct FokusableView: View {
             }
           }
         case .error:
-          Text("Oops! Something happend.")
+          ErrorView()
         }
       }
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
@@ -78,7 +78,7 @@ struct FokusableView: View {
           }
           
         case .error:
-          Text("Oops! Something happend.")
+          ErrorView()
         }
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
