@@ -109,9 +109,14 @@ struct FokusableFeature {
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
                 .map { noteItem in
-                  // filter note not changed
+                  // 編集されたノート以外は処理しないのでスキップ
                   if noteItem.id != id {
-                    return noteItem
+                    if noteItem.isEdit {
+                      // 対象のノート以外の編集モードを解除する
+                      return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: noteItem.text, isEdit: false)
+                    } else {
+                      return noteItem
+                    }
                   }
                   
                   return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: noteItem.text, isEdit: true)
