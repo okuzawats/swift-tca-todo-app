@@ -140,7 +140,8 @@ struct FokusableFeature {
                     return noteItem
                   }
                   
-                  return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: noteItem.text, isEdit: false)
+                  let isDone = noteItem.isDone
+                  return NoteItem(id: noteItem.id, isDone: !isDone, text: noteItem.text, isEdit: false)
                 }
             )
           )
