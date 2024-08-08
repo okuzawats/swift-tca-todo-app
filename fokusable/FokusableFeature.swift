@@ -23,14 +23,23 @@ struct FokusableFeature {
   }
   
   enum Action {
+    // Viewが表示された時
     case onEnter
+    // 日付データの読み込みが完了した時
     case onFetchedDays(IdentifiedArrayOf<DayItem>)
+    // 日付データの読み込みに失敗した時
     case onErroredFetchingDays(Error)
+    // 日付が選択された時
     case onSelectedDay(DayItem)
+    // ノートの読み込みが完了した時
     case onFetchedNote(IdentifiedArrayOf<NoteItem>)
+    // ノートの読み込みに失敗した時
     case onErroredFetchingNote(Error)
+    // ノートが編集された時
     case onEditNote(UUID)
+    // ノートが完了された時
     case onCheckNote(UUID)
+    // ノートが保存された時
     case onSaveNote(UUID, String)
   }
   
@@ -75,8 +84,8 @@ struct FokusableFeature {
           logger.info("fetched notes = \(fetchedNotes)")
           switch fetchedNotes {
           case .success(var notes):
-            // add empty note to show input field
-            let emptyNote = NoteItem(id: UUID(), isDone: false, text: "", isEdit: false)
+            // 空のノートを作成し、そのノートを編集状態にする
+            let emptyNote = NoteItem(id: UUID(), isDone: false, text: "", isEdit: true)
             notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
@@ -121,7 +130,7 @@ struct FokusableFeature {
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
                 .map { noteItem in
-                  // filter note not changed
+                  // 編集されたノート以外は処理しないのでスキップ
                   if noteItem.id != id {
                     return noteItem
                   }
@@ -149,7 +158,7 @@ struct FokusableFeature {
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
                 .map { noteItem in
-                  // filter note not changed
+                  // 編集されたノート以外は処理しないのでスキップ
                   if noteItem.id != id {
                     return noteItem
                   }
