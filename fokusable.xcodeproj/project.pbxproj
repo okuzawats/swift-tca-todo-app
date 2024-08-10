@@ -269,9 +269,9 @@
 		35FA8DBC2C673830002E71FA /* days */ = {
 			isa = PBXGroup;
 			children = (
-				35E95FFB2C672EA1009ACB93 /* DayListView.swift */,
 				3545B0ED2C673935001BE703 /* DayState.swift */,
 				3545B0F42C673AFF001BE703 /* DayPageView.swift */,
+				35E95FFB2C672EA1009ACB93 /* DayListView.swift */,
 			);
 			path = days;
 			sourceTree = "<group>";
@@ -279,9 +279,9 @@
 		35FA8DBD2C67383E002E71FA /* notes */ = {
 			isa = PBXGroup;
 			children = (
-				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
 				3545B0F02C6739FA001BE703 /* NoteState.swift */,
 				3545B0F72C673D80001BE703 /* NotePageView.swift */,
+				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
 			);
 			path = notes;
 			sourceTree = "<group>";
