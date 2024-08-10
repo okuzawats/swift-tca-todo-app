@@ -152,9 +152,9 @@
 		352B69A92BE827ED0055F436 /* fokusable */ = {
 			isa = PBXGroup;
 			children = (
+				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
 				35FA8DBB2C673824002E71FA /* feature */,
 				35E95FFA2C672D13009ACB93 /* component */,
-				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
 				35F34C0C2C0FB6C7000EE97D /* day */,
 				35F34C0D2C0FB6D8000EE97D /* note */,
 				352B69B02BE827ED0055F436 /* Assets.xcassets */,
