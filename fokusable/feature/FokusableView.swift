@@ -6,21 +6,10 @@ struct FokusableView: View {
   
   var body: some View {
     NavigationSplitView {
-      Group {
-        switch store.dayState {
-        case .empty:
-          EmptyView()
-        case .list(let days):
-          DayListView(
-            days: days,
-            onDayTapped: { dayItem in
-              store.send(.onSelectedDay(dayItem))
-            }
-          )
-        case .error:
-          ErrorView()
-        }
-      }
+      DayPageView(
+        state: store.dayState,
+        onDayTapped: { store.send(.onSelectedDay($0)) }
+      )
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
     } detail: {
       Group {
