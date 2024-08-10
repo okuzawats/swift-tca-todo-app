@@ -12,11 +12,11 @@ struct DayListView: View {
   
   var body: some View {
     List {
-      ForEach(days) { dayItem in
-        Text("\(dayItem.day)")
-          .onTapGesture {
-            onDayTapped(dayItem)
-          }
+      ForEach(days) { day in
+        DayListRowView(
+          day: day,
+          onDayTapped: onDayTapped
+        )
       }
     }
   }
