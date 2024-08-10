@@ -5,8 +5,9 @@ import SwiftUI
 ///
 /// - Parameters:
 ///   - notes: ノートを表すデータの配列
-///   - onNoteChecked: ノートのチェックをタップした時のコールバック
-///   - onNoteSaved:
+///   - onCheckBoxTapped: ノートのチェックをタップした時のコールバック
+///   - onSaveButtonTapped: ノートの保存をタップした時のコールバック
+///   - onEditButtonTapped: ノートの編集をタップした時のコールバック
 struct NoteListView: View {
   var notes: IdentifiedArrayOf<NoteItem>
   var onCheckBoxTapped: (NoteItem) -> Void
@@ -21,9 +22,7 @@ struct NoteListView: View {
       ForEach(notes) { note in
         HStack {
           CheckBoxView(isChecked: note.isDone)
-            .onTapGesture {
-              onCheckBoxTapped(note)
-            }
+            .onTapGesture {onCheckBoxTapped(note)}
           
           if (note.isEdit) {
             TextField("Enter Your TODO here.", text: $editingText)
@@ -46,9 +45,7 @@ struct NoteListView: View {
               .fixedSize(horizontal: false, vertical: true)
               .frame(maxWidth: .infinity, alignment: .leading)
               .background(.white) // タップを有効化するために必要
-              .onTapGesture {
-                onEditButtonTapped(note)
-              }
+              .onTapGesture { onEditButtonTapped(note) }
           }
         }
         .listRowSeparator(.hidden)
