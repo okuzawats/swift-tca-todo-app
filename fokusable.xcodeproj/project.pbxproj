@@ -146,10 +146,9 @@
 		352B69A92BE827ED0055F436 /* fokusable */ = {
 			isa = PBXGroup;
 			children = (
+				35FA8DBB2C673824002E71FA /* feature */,
 				35E95FFA2C672D13009ACB93 /* component */,
 				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
-				35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */,
-				35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */,
 				35F34C0C2C0FB6C7000EE97D /* day */,
 				35F34C0D2C0FB6D8000EE97D /* note */,
 				352B69B02BE827ED0055F436 /* Assets.xcassets */,
@@ -198,8 +197,6 @@
 			children = (
 				35F1789E2C5E0600009F5129 /* CheckBoxView.swift */,
 				35E95FF82C650091009ACB93 /* ErrorView.swift */,
-				35E95FFB2C672EA1009ACB93 /* DayListView.swift */,
-				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -244,6 +241,33 @@
 				35581E502BE975760047D012 /* NoteDatabase.swift */,
 			);
 			path = database;
+			sourceTree = "<group>";
+		};
+		35FA8DBB2C673824002E71FA /* feature */ = {
+			isa = PBXGroup;
+			children = (
+				35FA8DBC2C673830002E71FA /* days */,
+				35FA8DBD2C67383E002E71FA /* notes */,
+				35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */,
+				35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */,
+			);
+			path = feature;
+			sourceTree = "<group>";
+		};
+		35FA8DBC2C673830002E71FA /* days */ = {
+			isa = PBXGroup;
+			children = (
+				35E95FFB2C672EA1009ACB93 /* DayListView.swift */,
+			);
+			path = days;
+			sourceTree = "<group>";
+		};
+		35FA8DBD2C67383E002E71FA /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
+			);
+			path = notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
