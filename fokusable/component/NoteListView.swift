@@ -20,7 +20,7 @@ struct NoteListView: View {
     List {
       ForEach(notes) { note in
         HStack {
-          CheckBox(isChecked: note.isDone)
+          CheckBoxView(isChecked: note.isDone)
             .onTapGesture {
               onCheckBoxTapped(note)
             }

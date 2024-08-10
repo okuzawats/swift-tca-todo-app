@@ -40,7 +40,7 @@
 		35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E95FF82C650091009ACB93 /* ErrorView.swift */; };
 		35E95FFC2C672EA1009ACB93 /* DayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E95FFB2C672EA1009ACB93 /* DayListView.swift */; };
 		35E95FFF2C673086009ACB93 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E95FFE2C673086009ACB93 /* NoteListView.swift */; };
-		35F1789F2C5E0600009F5129 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1789E2C5E0600009F5129 /* CheckBox.swift */; };
+		35F1789F2C5E0600009F5129 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1789E2C5E0600009F5129 /* CheckBoxView.swift */; };
 		35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */; };
 		35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */; };
 		35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34C072C0FB611000EE97D /* DayRepository.swift */; };
@@ -89,7 +89,7 @@
 		35E95FF82C650091009ACB93 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		35E95FFB2C672EA1009ACB93 /* DayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayListView.swift; sourceTree = "<group>"; };
 		35E95FFE2C673086009ACB93 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
-		35F1789E2C5E0600009F5129 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		35F1789E2C5E0600009F5129 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableView.swift; sourceTree = "<group>"; };
 		35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableFeature.swift; sourceTree = "<group>"; };
 		35F34C072C0FB611000EE97D /* DayRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayRepository.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		35E95FFA2C672D13009ACB93 /* component */ = {
 			isa = PBXGroup;
 			children = (
-				35F1789E2C5E0600009F5129 /* CheckBox.swift */,
+				35F1789E2C5E0600009F5129 /* CheckBoxView.swift */,
 				35E95FF82C650091009ACB93 /* ErrorView.swift */,
 				35E95FFB2C672EA1009ACB93 /* DayListView.swift */,
 				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
@@ -384,7 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F1789F2C5E0600009F5129 /* CheckBox.swift in Sources */,
+				35F1789F2C5E0600009F5129 /* CheckBoxView.swift in Sources */,
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
 				353C52DC2C13A9390022D094 /* NoteFetchingService.swift in Sources */,
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,

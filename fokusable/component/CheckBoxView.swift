@@ -4,7 +4,7 @@ import SwiftUI
 ///
 /// チェックボックスの未チェック状態、チェック状態を切り替えることのできるコンポーネント。
 /// SF Symbolsを用いている。
-struct CheckBox: View {
+struct CheckBoxView: View {
   private var isChecked: Bool
   
   /// - Parameters:
