@@ -4,11 +4,6 @@ import Logging
 
 @Reducer
 struct FokusableFeature {
-  enum DayState: Equatable {
-    case empty
-    case list(items: IdentifiedArrayOf<DayItem>)
-    case error
-  }
   
   enum NoteState: Equatable {
     case empty
