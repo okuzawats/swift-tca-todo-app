@@ -38,6 +38,7 @@
 		35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C42BF9419700FF9ACB /* DayItem.swift */; };
 		35D5F0C72BF941F400FF9ACB /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5F0C62BF941F400FF9ACB /* NoteItem.swift */; };
 		35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E95FF82C650091009ACB93 /* ErrorView.swift */; };
+		35E95FFC2C672EA1009ACB93 /* DayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E95FFB2C672EA1009ACB93 /* DayListView.swift */; };
 		35F1789F2C5E0600009F5129 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1789E2C5E0600009F5129 /* CheckBox.swift */; };
 		35F34C002C0FB4AE000EE97D /* FokusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */; };
 		35F34C012C0FB4AE000EE97D /* FokusableFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */; };
@@ -85,6 +86,7 @@
 		35D5F0C42BF9419700FF9ACB /* DayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItem.swift; sourceTree = "<group>"; };
 		35D5F0C62BF941F400FF9ACB /* NoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
 		35E95FF82C650091009ACB93 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		35E95FFB2C672EA1009ACB93 /* DayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayListView.swift; sourceTree = "<group>"; };
 		35F1789E2C5E0600009F5129 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableView.swift; sourceTree = "<group>"; };
 		35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FokusableFeature.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				35F1789E2C5E0600009F5129 /* CheckBox.swift */,
 				35E95FF82C650091009ACB93 /* ErrorView.swift */,
+				35E95FFB2C672EA1009ACB93 /* DayListView.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				35D5F0C52BF9419700FF9ACB /* DayItem.swift in Sources */,
 				353C52D62C11069D0022D094 /* DayMapper.swift in Sources */,
 				35D5F0C72BF941F400FF9ACB /* NoteItem.swift in Sources */,
+				35E95FFC2C672EA1009ACB93 /* DayListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

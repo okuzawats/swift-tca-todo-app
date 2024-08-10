@@ -2,7 +2,7 @@ import Foundation
 
 struct DayItem: Equatable, Identifiable {
   let id: UUID
-  let day: String
+  let day: String // TODO: `date` にリネームする
 
   init(id: UUID, day: String) {
     // YYYY-MM-DD

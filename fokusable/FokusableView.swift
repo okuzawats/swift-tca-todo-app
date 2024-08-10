@@ -12,15 +12,13 @@ struct FokusableView: View {
         switch store.dayState {
         case .empty:
           EmptyView()
-        case .list(let items):
-          List {
-            ForEach(items) { item in
-              Text("\(item.day)")
-                .onTapGesture {
-                  store.send(.onSelectedDay(item))
-                }
+        case .list(let days):
+          DayListView(
+            days: days,
+            onDayTapped: { dayItem in
+              store.send(.onSelectedDay(dayItem))
             }
-          }
+          )
         case .error:
           ErrorView()
         }
@@ -43,19 +41,19 @@ struct FokusableView: View {
                 
                 if (note.isEdit) {
                   TextField("Enter Your TODO here.", text: $editingText)
-                  .textFieldStyle(DefaultTextFieldStyle())
-                  .focused($focus, equals: true)
-                  .onSubmit {
-                    store.send(.onSaveNote(note.id, editingText))
-                    editingText = "" // 保存した時、テキストを空にする
-                  }
-                  .onAppear {
-                    editingText = note.text
-                    focus = true
-                  }
-                  .onDisappear {
-                    focus = nil
-                  }
+                    .textFieldStyle(DefaultTextFieldStyle())
+                    .focused($focus, equals: true)
+                    .onSubmit {
+                      store.send(.onSaveNote(note.id, editingText))
+                      editingText = "" // 保存した時、テキストを空にする
+                    }
+                    .onAppear {
+                      editingText = note.text
+                      focus = true
+                    }
+                    .onDisappear {
+                      focus = nil
+                    }
                 } else {
                   Text("\(note.text)")
                     .lineLimit(1)
