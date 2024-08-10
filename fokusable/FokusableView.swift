@@ -3,8 +3,6 @@ import SwiftUI
 
 struct FokusableView: View {
   @Bindable var store: StoreOf<FokusableFeature>
-  @State var editingText = "" // 編集中のテキスト
-  @FocusState var focus: Bool? // 編集中のTextFieldにフォーカスを与えるために使用する値
   
   var body: some View {
     NavigationSplitView {
@@ -54,12 +52,12 @@ struct FokusableView: View {
   }
 }
 
-#Preview {
-  FokusableView(
-    store: Store(
-      initialState: FokusableFeature.State()
-    ) {
-      FokusableFeature()
-    }
-  )
-}
+//#Preview {
+//  FokusableView(
+//    store: Store(
+//      initialState: FokusableFeature.State()
+//    ) {
+//      FokusableFeature()
+//    }
+//  )
+//}
