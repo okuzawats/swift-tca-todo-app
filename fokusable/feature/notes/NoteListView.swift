@@ -21,7 +21,10 @@ struct NoteListView: View {
     List {
       ForEach(notes) { note in
         HStack {
-          CheckBoxView(isChecked: note.isDone, onChecked: { _ in onCheckBoxTapped(note) })
+          CheckBoxView(
+            isChecked: note.isDone,
+            onChecked: { _ in onCheckBoxTapped(note) }
+          )
           
           if (note.isEdit) {
             TextField("Enter Your TODO here.", text: $editingText)
