@@ -21,26 +21,10 @@ struct NoteListView: View {
     List {
       ForEach(notes) { note in
         HStack {
-          CheckBoxView(
-            isChecked: note.isDone,
-            onChecked: { _ in onCheckBoxTapped(note) }
-          )
+          CheckBoxView(isChecked: note.isDone, onChecked: { _ in onCheckBoxTapped(note) })
           
           if (note.isEdit) {
-            TextField("Enter Your TODO here.", text: $editingText)
-              .textFieldStyle(DefaultTextFieldStyle())
-              .focused($focus, equals: true)
-              .onSubmit {
-                onSaveButtonTapped(note, editingText)
-                editingText = "" // 保存した時、テキストを空にする
-              }
-              .onAppear {
-                editingText = note.text
-                focus = true
-              }
-              .onDisappear {
-                focus = nil
-              }
+            NoteListInputView(note: note, onInputFinished: onSaveButtonTapped)
           } else {
             NoteListItemView(note: note, onFocused: onEditButtonTapped)
           }

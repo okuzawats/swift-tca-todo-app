@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 個々のノートを表すView
+/// 個々のノートを表示するView
 ///
 /// - Parameters:
 ///   - note: 個々のノートを表すデータ
