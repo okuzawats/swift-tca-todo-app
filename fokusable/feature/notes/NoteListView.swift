@@ -14,21 +14,15 @@ struct NoteListView: View {
   var onSaveButtonTapped: (NoteItem, String) -> Void
   var onEditButtonTapped: (NoteItem) -> Void
   
-  @State var editingText = "" // 編集中のテキスト
-  @FocusState var focus: Bool? // 編集中のTextFieldにフォーカスを与えるために使用する値
-  
   var body: some View {
     List {
       ForEach(notes) { note in
-        HStack {
-          CheckBoxView(isChecked: note.isDone, onChecked: { _ in onCheckBoxTapped(note) })
-          
-          if (note.isEdit) {
-            NoteListInputView(note: note, onInputFinished: onSaveButtonTapped)
-          } else {
-            NoteListItemView(note: note, onFocused: onEditButtonTapped)
-          }
-        }
+        NoteListRowView(
+          note: note,
+          onCheckBoxTapped: onCheckBoxTapped,
+          onSaveButtonTapped: onSaveButtonTapped,
+          onEditButtonTapped: onEditButtonTapped
+        )
         .listRowSeparator(.hidden)
         .padding(.bottom, 4)
       }
