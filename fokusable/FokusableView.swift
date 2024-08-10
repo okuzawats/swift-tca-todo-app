@@ -29,47 +29,19 @@ struct FokusableView: View {
         switch store.noteState {
         case .empty:
           Text("") // ノートが空の場合にdetailのエリアが潰れないようにするための空のView
-          
         case .list(let notes):
-          List {
-            ForEach(notes) { note in
-              HStack {
-                CheckBox(isChecked: note.isDone)
-                  .onTapGesture {
-                    store.send(.onCheckNote(note.id))
-                  }
-                
-                if (note.isEdit) {
-                  TextField("Enter Your TODO here.", text: $editingText)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                    .focused($focus, equals: true)
-                    .onSubmit {
-                      store.send(.onSaveNote(note.id, editingText))
-                      editingText = "" // 保存した時、テキストを空にする
-                    }
-                    .onAppear {
-                      editingText = note.text
-                      focus = true
-                    }
-                    .onDisappear {
-                      focus = nil
-                    }
-                } else {
-                  Text("\(note.text)")
-                    .lineLimit(1)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.white) // タップを有効化するために必要
-                    .onTapGesture {
-                      store.send(.onEditNote(note.id))
-                    }
-                }
-              }
-              .listRowSeparator(.hidden)
-              .padding(.bottom, 4)
+          NoteListView(
+            notes: notes,
+            onCheckBoxTapped: { noteItem in
+              store.send(.onCheckNote(noteItem.id))
+            },
+            onSaveButtonTapped: { noteItem, text in
+              store.send(.onSaveNote(noteItem.id, text))
+            },
+            onEditButtonTapped: { noteItem in
+              store.send(.onEditNote(noteItem.id))
             }
-          }
-          
+          )
         case .error:
           ErrorView()
         }
