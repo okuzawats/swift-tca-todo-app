@@ -142,6 +142,7 @@
 		352B69A92BE827ED0055F436 /* fokusable */ = {
 			isa = PBXGroup;
 			children = (
+				35E95FFA2C672D13009ACB93 /* component */,
 				352B69AA2BE827ED0055F436 /* FokusableApp.swift */,
 				35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */,
 				35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */,
@@ -150,8 +151,6 @@
 				352B69B02BE827ED0055F436 /* Assets.xcassets */,
 				352B69B22BE827ED0055F436 /* fokusable.entitlements */,
 				352B69B32BE827ED0055F436 /* Preview Content */,
-				35F1789E2C5E0600009F5129 /* CheckBox.swift */,
-				35E95FF82C650091009ACB93 /* ErrorView.swift */,
 			);
 			path = fokusable;
 			sourceTree = "<group>";
@@ -188,6 +187,15 @@
 				359477F42C18F1C800E482D5 /* DayItemTests.swift */,
 			);
 			path = day;
+			sourceTree = "<group>";
+		};
+		35E95FFA2C672D13009ACB93 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				35F1789E2C5E0600009F5129 /* CheckBox.swift */,
+				35E95FF82C650091009ACB93 /* ErrorView.swift */,
+			);
+			path = component;
 			sourceTree = "<group>";
 		};
 		35F34C0C2C0FB6C7000EE97D /* day */ = {
