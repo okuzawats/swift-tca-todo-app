@@ -40,12 +40,7 @@ struct NoteListView: View {
                 focus = nil
               }
           } else {
-            Text("\(note.text)")
-              .lineLimit(1)
-              .fixedSize(horizontal: false, vertical: true)
-              .frame(maxWidth: .infinity, alignment: .leading)
-              .background(.white) // タップを有効化するために必要
-              .onTapGesture { onEditButtonTapped(note) }
+            NoteListItemView(note: note, onFocused: onEditButtonTapped)
           }
         }
         .listRowSeparator(.hidden)

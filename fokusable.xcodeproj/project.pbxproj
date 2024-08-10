@@ -28,6 +28,8 @@
 		3545B0F62C673AFF001BE703 /* DayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F42C673AFF001BE703 /* DayPageView.swift */; };
 		3545B0F82C673D80001BE703 /* NotePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F72C673D80001BE703 /* NotePageView.swift */; };
 		3545B0F92C673D80001BE703 /* NotePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F72C673D80001BE703 /* NotePageView.swift */; };
+		3545B0FB2C6741F4001BE703 /* NoteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0FA2C6741F4001BE703 /* NoteListItemView.swift */; };
+		3545B0FC2C6741F4001BE703 /* NoteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0FA2C6741F4001BE703 /* NoteListItemView.swift */; };
 		3551E4912BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4922BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */; };
@@ -90,6 +92,7 @@
 		3545B0F02C6739FA001BE703 /* NoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteState.swift; sourceTree = "<group>"; };
 		3545B0F42C673AFF001BE703 /* DayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageView.swift; sourceTree = "<group>"; };
 		3545B0F72C673D80001BE703 /* NotePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePageView.swift; sourceTree = "<group>"; };
+		3545B0FA2C6741F4001BE703 /* NoteListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListItemView.swift; sourceTree = "<group>"; };
 		3551E4902BEC178100DE61C4 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDatabase.swift; sourceTree = "<group>"; };
 		35581E4D2BE9754A0047D012 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -282,6 +285,7 @@
 				3545B0F02C6739FA001BE703 /* NoteState.swift */,
 				3545B0F72C673D80001BE703 /* NotePageView.swift */,
 				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
+				3545B0FA2C6741F4001BE703 /* NoteListItemView.swift */,
 			);
 			path = notes;
 			sourceTree = "<group>";
@@ -430,6 +434,7 @@
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
 				35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */,
 				3545B0F82C673D80001BE703 /* NotePageView.swift in Sources */,
+				3545B0FB2C6741F4001BE703 /* NoteListItemView.swift in Sources */,
 				3545B0F12C6739FA001BE703 /* NoteState.swift in Sources */,
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				353C52D92C110BFE0022D094 /* DayFetchingService.swift in Sources */,
@@ -454,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3545B0FC2C6741F4001BE703 /* NoteListItemView.swift in Sources */,
 				35B0AF9D2C16495F00019782 /* DayRepository.swift in Sources */,
 				3551E4922BEC178100DE61C4 /* Day.swift in Sources */,
 				3545B0F62C673AFF001BE703 /* DayPageView.swift in Sources */,
