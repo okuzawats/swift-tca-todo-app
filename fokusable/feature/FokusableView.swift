@@ -1,6 +1,10 @@
 import ComposableArchitecture
 import SwiftUI
 
+/// アプリケーション全体のルートとなるView
+///
+/// - Parameters:
+///   - store: Composable ArchitectureにおけるStore。ルートのFeatureであるFokusableFeatureを型引数として持つ。
 struct FokusableView: View {
   @Bindable var store: StoreOf<FokusableFeature>
   
