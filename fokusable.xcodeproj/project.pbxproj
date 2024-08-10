@@ -26,6 +26,8 @@
 		3545B0F22C6739FA001BE703 /* NoteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F02C6739FA001BE703 /* NoteState.swift */; };
 		3545B0F52C673AFF001BE703 /* DayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F42C673AFF001BE703 /* DayPageView.swift */; };
 		3545B0F62C673AFF001BE703 /* DayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F42C673AFF001BE703 /* DayPageView.swift */; };
+		3545B0F82C673D80001BE703 /* NotePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F72C673D80001BE703 /* NotePageView.swift */; };
+		3545B0F92C673D80001BE703 /* NotePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F72C673D80001BE703 /* NotePageView.swift */; };
 		3551E4912BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4922BEC178100DE61C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4902BEC178100DE61C4 /* Day.swift */; };
 		3551E4942BEC17DB00DE61C4 /* DayDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */; };
@@ -87,6 +89,7 @@
 		3545B0ED2C673935001BE703 /* DayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayState.swift; sourceTree = "<group>"; };
 		3545B0F02C6739FA001BE703 /* NoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteState.swift; sourceTree = "<group>"; };
 		3545B0F42C673AFF001BE703 /* DayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageView.swift; sourceTree = "<group>"; };
+		3545B0F72C673D80001BE703 /* NotePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePageView.swift; sourceTree = "<group>"; };
 		3551E4902BEC178100DE61C4 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3551E4932BEC17DB00DE61C4 /* DayDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDatabase.swift; sourceTree = "<group>"; };
 		35581E4D2BE9754A0047D012 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -278,6 +281,7 @@
 			children = (
 				35E95FFE2C673086009ACB93 /* NoteListView.swift */,
 				3545B0F02C6739FA001BE703 /* NoteState.swift */,
+				3545B0F72C673D80001BE703 /* NotePageView.swift */,
 			);
 			path = notes;
 			sourceTree = "<group>";
@@ -425,6 +429,7 @@
 				353C52DC2C13A9390022D094 /* NoteFetchingService.swift in Sources */,
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
 				35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */,
+				3545B0F82C673D80001BE703 /* NotePageView.swift in Sources */,
 				3545B0F12C6739FA001BE703 /* NoteState.swift in Sources */,
 				35F34C0A2C0FB611000EE97D /* NoteRepository.swift in Sources */,
 				353C52D92C110BFE0022D094 /* DayFetchingService.swift in Sources */,
@@ -462,6 +467,7 @@
 				35B0AF9C2C16494D00019782 /* DayItem.swift in Sources */,
 				359477F52C18F1C800E482D5 /* DayItemTests.swift in Sources */,
 				35581E4F2BE9754A0047D012 /* Note.swift in Sources */,
+				3545B0F92C673D80001BE703 /* NotePageView.swift in Sources */,
 				35ABD9C52C1C755B008F3EAB /* NoteMapper.swift in Sources */,
 				353C52D72C11069D0022D094 /* DayMapper.swift in Sources */,
 				3551E4952BEC17DB00DE61C4 /* DayDatabase.swift in Sources */,

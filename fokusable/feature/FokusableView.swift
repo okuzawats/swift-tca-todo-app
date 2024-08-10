@@ -16,27 +16,12 @@ struct FokusableView: View {
       )
       .navigationSplitViewColumnWidth(min: 180, ideal: 200)
     } detail: {
-      Group {
-        switch store.noteState {
-        case .empty:
-          Text("") // ノートが空の場合にdetailのエリアが潰れないようにするための空のView
-        case .list(let notes):
-          NoteListView(
-            notes: notes,
-            onCheckBoxTapped: { noteItem in
-              store.send(.onCheckNote(noteItem.id))
-            },
-            onSaveButtonTapped: { noteItem, text in
-              store.send(.onSaveNote(noteItem.id, text))
-            },
-            onEditButtonTapped: { noteItem in
-              store.send(.onEditNote(noteItem.id))
-            }
-          )
-        case .error:
-          ErrorView()
-        }
-      }
+      NotePageView(
+        state: store.noteState,
+        onCheckBoxTapped: { store.send(.onCheckNote($0.id)) },
+        onSaveButtonTapped: { store.send(.onSaveNote($0.id, $1)) },
+        onEditButtonTapped: { store.send(.onEditNote($0.id)) }
+      )
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
       .onAppear {
         store.send(.onEnter)
