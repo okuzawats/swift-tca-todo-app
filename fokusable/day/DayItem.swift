@@ -2,8 +2,8 @@ import Foundation
 
 struct DayItem: Equatable, Identifiable {
   let id: UUID
-  let day: String // TODO: `date` にリネームする
-
+  let date: String
+  
   init(id: UUID, day: String) {
     // YYYY-MM-DD
     let pattern: String = #"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"#
@@ -13,15 +13,15 @@ struct DayItem: Equatable, Identifiable {
     precondition(match != nil)
     
     self.id = id
-    self.day = day
+    self.date = day
   }
 }
 
 extension DayItem: Comparable {
   static func < (lhs: DayItem, rhs: DayItem) -> Bool {
-    let lhsDate = lhs.day.components(separatedBy: "-")
-    let rhsDate = rhs.day.components(separatedBy: "-")
-
+    let lhsDate = lhs.date.components(separatedBy: "-")
+    let rhsDate = rhs.date.components(separatedBy: "-")
+    
     if Int(lhsDate[0])! < Int(rhsDate[0])! {
       return true
     }

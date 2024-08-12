@@ -10,7 +10,7 @@ struct DayListRowView: View {
   var onDayTapped: (DayItem) -> Void
 
   var body: some View {
-    Text("\(day.day)")
+    Text("\(day.date)")
       .onTapGesture { onDayTapped(day) }
   }
 }
