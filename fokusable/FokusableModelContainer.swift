@@ -6,7 +6,11 @@ struct FokusableModelContainer {
       Day.self,
       Note.self
     ])
-    let configurations = [ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)]
+
+    let configurations = [
+      ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    ]
+
     do {
       return try ModelContainer(for: schema, configurations: configurations)
     } catch {
