@@ -17,7 +17,6 @@ struct FokusableApp: App {
     }
   }()
   
-
   static let store = Store(
     initialState: FokusableFeature.State()
   ) {
@@ -25,7 +24,7 @@ struct FokusableApp: App {
     // Stateの変化をログ出力してくれるTCAの機能を有効化する処理
       ._printChanges()
   }
-
+  
   var body: some Scene {
     WindowGroup {
       FokusableView(
