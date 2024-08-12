@@ -7,7 +7,7 @@ struct NoteDatabase {
 
 extension NoteDatabase: DependencyKey {
   static let liveValue: NoteDatabase = Self(
-    context: { appContext }()
+    context: { ModelContext(FokusableApp.sharedModelContainer) }()
   )
 }
 
@@ -17,7 +17,3 @@ extension DependencyValues {
     set { self[NoteDatabase.self] = newValue }
   }
 }
-
-fileprivate let appContext: ModelContext = {
-  ModelContext(FokusableApp.sharedModelContainer)
-}()
