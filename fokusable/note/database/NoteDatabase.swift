@@ -19,10 +19,5 @@ extension DependencyValues {
 }
 
 fileprivate let appContext: ModelContext = {
-  do {
-    let container = try ModelContainer(for: Note.self)
-    return ModelContext(container)
-  } catch {
-    fatalError("Failed to create container.")
-  }
+  ModelContext(FokusableApp.sharedModelContainer)
 }()
