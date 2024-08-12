@@ -7,7 +7,7 @@ struct DayDatabase {
 
 extension DayDatabase: DependencyKey {
   static let liveValue: DayDatabase = Self(
-    context: { ModelContext(FokusableApp.sharedModelContainer) }()
+    context: { ModelContext(FokusableModelContainer.shared) }()
   )
 }
 
