@@ -18,11 +18,12 @@ extension NoteRepository: DependencyKey {
     fetch: { id in
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
+
       let fetchDispatcher = FetchDescriptor<Note>(
-        predicate: #Predicate {
-          $0.id == id
-        }
+        // IDが等しいノートのみを取得するためのQuery
+        predicate: #Predicate { $0.id == id }
       )
+
       let allNote: [Note]
       do {
         allNote = try context.fetch(fetchDispatcher)
@@ -37,8 +38,9 @@ extension NoteRepository: DependencyKey {
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
       
+      context.insert(note)
+
       do {
-        context.insert(note)
         try context.save()
       } catch {
         return .failure(.insertionError)
