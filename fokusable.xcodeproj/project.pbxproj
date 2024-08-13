@@ -274,10 +274,10 @@
 		35FA8DBB2C673824002E71FA /* feature */ = {
 			isa = PBXGroup;
 			children = (
-				35FA8DBC2C673830002E71FA /* days */,
-				35FA8DBD2C67383E002E71FA /* notes */,
 				35F34BFF2C0FB4AE000EE97D /* FokusableFeature.swift */,
 				35F34BFE2C0FB4AE000EE97D /* FokusableView.swift */,
+				35FA8DBC2C673830002E71FA /* days */,
+				35FA8DBD2C67383E002E71FA /* notes */,
 			);
 			path = feature;
 			sourceTree = "<group>";
