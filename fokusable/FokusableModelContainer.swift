@@ -1,5 +1,8 @@
 import SwiftData
 
+/// SwiftDataのModelContainerを管理するための型
+///
+/// ModelContainerのインスタンスを `shared` として保持している。
 struct FokusableModelContainer {
   static var shared: ModelContainer = {
     let schema = Schema([
