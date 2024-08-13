@@ -31,9 +31,11 @@ struct FokusableFeature {
     case onSaveNote(UUID, String)
   }
   
-  @Dependency(\.dayFetchingService) var dayFetchingService: DayFetchingService
+  @Dependency(\.dayFetchingService)
+  var dayFetchingService: DayFetchingService
   
-  @Dependency(\.noteFetchingService) var noteFetchingService: NoteFetchingService
+  @Dependency(\.fetchNoteService)
+  var fetchNoteService: FetchNoteService
   
   var body: some ReducerOf<Self> {
     Reduce { state, action in
@@ -79,7 +81,7 @@ struct FokusableFeature {
         // 当日のノートの取得に失敗した場合、onFailedFetchingNoteを呼び出す。
         state.noteState = .empty
         return .run { send in
-          let fetchedNotes = await noteFetchingService.fetchById(day.id)
+          let fetchedNotes = await fetchNoteService.fetchById(day.id)
           logger.info("fetched notes = \(fetchedNotes)")
           switch fetchedNotes {
           case .success(var notes):

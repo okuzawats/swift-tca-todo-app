@@ -18,8 +18,8 @@
 		353C52D72C11069D0022D094 /* DayMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D52C11069D0022D094 /* DayMapper.swift */; };
 		353C52D92C110BFE0022D094 /* DayFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D82C110BFE0022D094 /* DayFetchingService.swift */; };
 		353C52DA2C110BFE0022D094 /* DayFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52D82C110BFE0022D094 /* DayFetchingService.swift */; };
-		353C52DC2C13A9390022D094 /* NoteFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52DB2C13A9390022D094 /* NoteFetchingService.swift */; };
-		353C52DD2C13A9390022D094 /* NoteFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52DB2C13A9390022D094 /* NoteFetchingService.swift */; };
+		353C52DC2C13A9390022D094 /* FetchNoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52DB2C13A9390022D094 /* FetchNoteService.swift */; };
+		353C52DD2C13A9390022D094 /* FetchNoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C52DB2C13A9390022D094 /* FetchNoteService.swift */; };
 		3545B0EE2C673935001BE703 /* DayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0ED2C673935001BE703 /* DayState.swift */; };
 		3545B0EF2C673935001BE703 /* DayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0ED2C673935001BE703 /* DayState.swift */; };
 		3545B0F12C6739FA001BE703 /* NoteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545B0F02C6739FA001BE703 /* NoteState.swift */; };
@@ -95,7 +95,7 @@
 		352B69CA2BE827EE0055F436 /* fokusableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fokusableUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		353C52D52C11069D0022D094 /* DayMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayMapper.swift; sourceTree = "<group>"; };
 		353C52D82C110BFE0022D094 /* DayFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFetchingService.swift; sourceTree = "<group>"; };
-		353C52DB2C13A9390022D094 /* NoteFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFetchingService.swift; sourceTree = "<group>"; };
+		353C52DB2C13A9390022D094 /* FetchNoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNoteService.swift; sourceTree = "<group>"; };
 		3545B0ED2C673935001BE703 /* DayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayState.swift; sourceTree = "<group>"; };
 		3545B0F02C6739FA001BE703 /* NoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteState.swift; sourceTree = "<group>"; };
 		3545B0F42C673AFF001BE703 /* DayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageView.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 				35F34C0F2C0FB843000EE97D /* database */,
 				35F34C082C0FB611000EE97D /* NoteRepository.swift */,
 				35D5F0C62BF941F400FF9ACB /* NoteItem.swift */,
-				353C52DB2C13A9390022D094 /* NoteFetchingService.swift */,
+				353C52DB2C13A9390022D094 /* FetchNoteService.swift */,
 				35ABD9C32C1C755B008F3EAB /* NoteMapper.swift */,
 			);
 			path = note;
@@ -447,7 +447,7 @@
 				35F1789F2C5E0600009F5129 /* CheckBoxView.swift in Sources */,
 				3545B1012C680E9D001BE703 /* NoteListRowView.swift in Sources */,
 				35581E512BE975760047D012 /* NoteDatabase.swift in Sources */,
-				353C52DC2C13A9390022D094 /* NoteFetchingService.swift in Sources */,
+				353C52DC2C13A9390022D094 /* FetchNoteService.swift in Sources */,
 				35F34C092C0FB611000EE97D /* DayRepository.swift in Sources */,
 				35E95FF92C650091009ACB93 /* ErrorView.swift in Sources */,
 				3545B0F82C673D80001BE703 /* NotePageView.swift in Sources */,
@@ -488,7 +488,7 @@
 				3545B0F22C6739FA001BE703 /* NoteState.swift in Sources */,
 				3545B0EF2C673935001BE703 /* DayState.swift in Sources */,
 				3545B1082C6ACF68001BE703 /* FokusableModelContainer.swift in Sources */,
-				353C52DD2C13A9390022D094 /* NoteFetchingService.swift in Sources */,
+				353C52DD2C13A9390022D094 /* FetchNoteService.swift in Sources */,
 				353C52DA2C110BFE0022D094 /* DayFetchingService.swift in Sources */,
 				35581E522BE975760047D012 /* NoteDatabase.swift in Sources */,
 				35B0AF9B2C16493600019782 /* NoteItem.swift in Sources */,
