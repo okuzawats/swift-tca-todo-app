@@ -1,5 +1,4 @@
 import ComposableArchitecture
-import SwiftData
 import SwiftUI
 
 @main
@@ -12,7 +11,6 @@ struct FokusableApp: App {
   var body: some Scene {
     WindowGroup {
       FokusableView(store: FokusableApp.store)
-        .modelContainer(FokusableModelContainer.shared)
     }
   }
 }
