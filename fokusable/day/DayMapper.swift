@@ -17,6 +17,18 @@ extension DayMapper: DependencyKey {
       return IdentifiedArrayOf(uniqueElements: elements)
     }
   )
+
+  static let previewValue: DayMapper = Self(
+    toPresentation: { days in
+      let elements = days
+        .map { day in
+          DayItem(id: day.id, day: day.date)
+        }
+        .sorted(by: >)
+      
+      return IdentifiedArrayOf(uniqueElements: elements)
+    }
+  )
 }
 
 extension DependencyValues {
