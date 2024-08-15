@@ -46,6 +46,15 @@ extension DayFetchingService: DependencyKey {
       //      return .failure(DayFetchingError())
     }
   )
+  
+  static let previewValue = Self(
+    fetchAll: {
+      return .success([])
+    },
+    fetchToday: {
+      return .success(DayItem(id: UUID(), day: "2024/08/06"))
+    }
+  )
 }
 
 extension DependencyValues {
