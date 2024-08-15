@@ -2,15 +2,15 @@ import ComposableArchitecture
 import Dependencies
 import Foundation
 
-struct DayFetchingError: Error {}
+struct FetchDayError: Error {}
 
-struct DayFetchingService {
-  var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, DayFetchingError>
-  var fetchToday: () async -> Result<DayItem, DayFetchingError>
+struct FetchDayService {
+  var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, FetchDayError>
+  var fetchToday: () async -> Result<DayItem, FetchDayError>
 }
 
-extension DayFetchingService: DependencyKey {
-  static let liveValue: DayFetchingService = Self(
+extension FetchDayService: DependencyKey {
+  static let liveValue: FetchDayService = Self(
     fetchAll: {
       @Dependency(\.dayRepository) var repository: DayRepository
       @Dependency(\.dayMapper) var mapper: DayMapper
@@ -35,7 +35,7 @@ extension DayFetchingService: DependencyKey {
         }
         return .success(mapper.toPresentation(days))
       case .failure(let error):
-        return .failure(DayFetchingError())
+        return .failure(FetchDayError())
       }
     },
     fetchToday: {
@@ -58,8 +58,8 @@ extension DayFetchingService: DependencyKey {
 }
 
 extension DependencyValues {
-  var dayFetchingService: DayFetchingService {
-    get { self[DayFetchingService.self] }
-    set { self[DayFetchingService.self] = newValue }
+  var fetchDayService: FetchDayService {
+    get { self[FetchDayService.self] }
+    set { self[FetchDayService.self] = newValue }
   }
 }

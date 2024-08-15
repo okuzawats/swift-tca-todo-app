@@ -31,8 +31,8 @@ struct FokusableFeature {
     case onSaveNote(UUID, String)
   }
   
-  @Dependency(\.dayFetchingService)
-  var dayFetchingService: DayFetchingService
+  @Dependency(\.fetchDayService)
+  var fetchDayService: FetchDayService
   
   @Dependency(\.fetchNoteService)
   var fetchNoteService: FetchNoteService
@@ -46,7 +46,7 @@ struct FokusableFeature {
         // 日付の取得に成功した場合はonFetchedDaysを、
         // 日付の取得に失敗した場合はonFailedFetchingDaysを呼び出す。
         return .run { send in
-          switch await dayFetchingService.fetchAll() {
+          switch await fetchDayService.fetchAll() {
           case .success(let days):
             await send(.onFetchedDays(days))
           case .failure(let error):
@@ -60,7 +60,7 @@ struct FokusableFeature {
         // 当日の日付の取得に失敗した場合はonFailedFetchingNoteを呼び出す（ノートの取得に失敗した扱いにする）。
         state.dayState = .list(items: days)
         return .run { send in
-          switch await dayFetchingService.fetchToday() {
+          switch await fetchDayService.fetchToday() {
           case .success(let today):
             await send(.onSelectedDay(today))
           case .failure(let error):
