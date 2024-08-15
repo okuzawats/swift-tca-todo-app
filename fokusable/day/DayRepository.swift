@@ -43,7 +43,7 @@ extension DayRepository: DependencyKey {
     }
   )
 
-  static let previewValue = Self(
+  static let previewValue: DayRepository = Self(
     fetchAll: {
       return .success([])
     },

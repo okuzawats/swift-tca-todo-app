@@ -47,7 +47,7 @@ extension FetchDayService: DependencyKey {
     }
   )
   
-  static let previewValue = Self(
+  static let previewValue: FetchDayService = Self(
     fetchAll: {
       return .success([])
     },

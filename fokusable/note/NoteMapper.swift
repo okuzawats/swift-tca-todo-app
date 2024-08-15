@@ -21,6 +21,21 @@ extension NoteMapper: DependencyKey {
       return Note(id: noteItem.id, status: status, text: noteItem.text)
     }
   )
+  
+  static let previewValue: NoteMapper = Self(
+    toPresentation: { note in
+      let elements = note
+        .map { line in
+          let isDone = line.status == "X"
+          return NoteItem(id: line.id, isDone: isDone, text: line.text, isEdit: false)
+        }
+      return IdentifiedArrayOf(uniqueElements: elements)
+    },
+    ToData: { noteItem in
+      let status = if noteItem.isDone { "x" } else { "" }
+      return Note(id: noteItem.id, status: status, text: noteItem.text)
+    }
+  )
 }
 
 extension DependencyValues {

@@ -31,8 +31,8 @@ extension FetchNoteService: DependencyKey {
     }
   )
   
-  static let previewValue = Self(
-    fetchById: {_ in 
+  static let previewValue: FetchNoteService = Self(
+    fetchById: {_ in
       return .success([])
     }
   )

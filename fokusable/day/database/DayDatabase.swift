@@ -9,6 +9,10 @@ extension DayDatabase: DependencyKey {
   static let liveValue: DayDatabase = Self(
     context: { ModelContext(FokusableModelContainer.shared) }()
   )
+
+  static let previewValue: DayDatabase = Self(
+    context: { ModelContext(FokusableModelContainer.shared) }()
+  )
 }
 
 extension DependencyValues {

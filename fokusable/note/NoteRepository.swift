@@ -50,7 +50,7 @@ extension NoteRepository: DependencyKey {
     }
   )
   
-  static let previewValue = Self(
+  static let previewValue: NoteRepository = Self(
     fetch: { _ in
       return .success([Note(id: UUID(), status: "", text: "This is a test data.")])
     },
