@@ -3,7 +3,7 @@ import Dependencies
 
 struct NoteMapper {
   var toPresentation: ([Note]) -> IdentifiedArrayOf<NoteItem>
-  var ToData: ((NoteItem) -> Note)
+  var toData: ((NoteItem) -> Note)
 }
 
 extension NoteMapper: DependencyKey {
@@ -16,7 +16,7 @@ extension NoteMapper: DependencyKey {
         }
       return IdentifiedArrayOf(uniqueElements: elements)
     },
-    ToData: { noteItem in
+    toData: { noteItem in
       let status = if noteItem.isDone { "x" } else { "" }
       return Note(id: noteItem.id, status: status, text: noteItem.text)
     }
@@ -31,7 +31,7 @@ extension NoteMapper: DependencyKey {
         }
       return IdentifiedArrayOf(uniqueElements: elements)
     },
-    ToData: { noteItem in
+    toData: { noteItem in
       let status = if noteItem.isDone { "x" } else { "" }
       return Note(id: noteItem.id, status: status, text: noteItem.text)
     }
