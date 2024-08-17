@@ -19,7 +19,7 @@ struct FokusableView: View {
       NotePageView(
         state: store.noteState,
         onCheckBoxTapped: { store.send(.onCheckNote($0.id)) },
-        onSaveButtonTapped: { store.send(.onSaveNote($0.id, $1)) },
+        onSaveButtonTapped: { store.send(.onSaveNote($0, $1)) },
         onEditButtonTapped: { store.send(.onEditNote($0.id)) }
       )
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

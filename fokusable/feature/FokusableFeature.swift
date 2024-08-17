@@ -28,7 +28,9 @@ struct FokusableFeature {
     // ノートが完了された時
     case onCheckNote(UUID)
     // ノートが保存された時
-    case onSaveNote(UUID, String)
+    case onSaveNote(NoteItem, String)
+    // ノートが更新された時
+    case onUpdateNote(NoteItem, String)
   }
   
   @Dependency(\.fetchDayService)
@@ -36,6 +38,9 @@ struct FokusableFeature {
   
   @Dependency(\.fetchNoteService)
   var fetchNoteService: FetchNoteService
+  
+  @Dependency(\.saveNoteService)
+  var saveNoteService: SaveNoteService
   
   var body: some ReducerOf<Self> {
     Reduce { state, action in
@@ -81,6 +86,7 @@ struct FokusableFeature {
         // 当日のノートの取得に失敗した場合、onFailedFetchingNoteを呼び出す。
         state.noteState = .empty
         return .run { send in
+          // TODO: 日付ごとにノートを読み込む処理が未実装なので、実装する。fetchByIdではなく、fetchByDayを実装。
           let fetchedNotes = await fetchNoteService.fetchById(day.id)
           logger.info("fetched notes = \(fetchedNotes)")
           switch fetchedNotes {
@@ -155,9 +161,16 @@ struct FokusableFeature {
         }
         return .none
         
-      case .onSaveNote(let id, let text):
-        // ノートが保存された時、ノートのテキスト画が空でなければ新たな空のノートを作成する。
+      case .onSaveNote(let noteItem, let text):
+        // ノートが保存された時、ノートのテキストが空でなければ新たな空のノートを作成する。
         // 保存されたノートをViewに反映する。
+        return .run { send in
+          let newItem = NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: text, isEdit: false)
+          let _ = await saveNoteService.save(newItem) // TODO: failure時の処理
+          await send(.onUpdateNote(newItem, text))
+        }
+        
+      case .onUpdateNote(let noteItem, let text):
         switch state.noteState {
         case .list(var noteItems):
           if text != "" {
@@ -167,16 +180,17 @@ struct FokusableFeature {
             )
           }
           
+          print(noteItems)
           state.noteState = .list(
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
-                .map { noteItem in
+                .map { _noteItem in
                   // 編集されたノート以外は処理しないのでスキップ
-                  if noteItem.id != id {
-                    return noteItem
+                  if _noteItem.id != noteItem.id {
+                    return _noteItem
                   }
                   
-                  return NoteItem(id: noteItem.id, isDone: noteItem.isDone, text: text, isEdit: false)
+                  return NoteItem(id: _noteItem.id, isDone: _noteItem.isDone, text: text, isEdit: false)
                 }
             )
           )
