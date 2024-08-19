@@ -21,7 +21,7 @@ extension DayMapper: DependencyKey {
       return Day(id: dayItem.id, date: dayItem.date)
     }
   )
-
+  
   static let previewValue: DayMapper = Self(
     toPresentation: { days in
       let elements = days

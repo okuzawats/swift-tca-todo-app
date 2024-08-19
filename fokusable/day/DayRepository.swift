@@ -18,10 +18,10 @@ extension DayRepository: DependencyKey {
     fetchAll: {
       @Dependency(\.dayDatabase.context)
       var context: ModelContext
-
+      
       @Dependency(\.dayMapper)
       var mapper: DayMapper
-
+      
       let fetchDispatcher = FetchDescriptor<Day>()
       let allDay: [Day]
       do {
@@ -29,16 +29,16 @@ extension DayRepository: DependencyKey {
       } catch {
         return .failure(.fetchError)
       }
-
+      
       return .success(mapper.toPresentation(allDay))
     },
     save: { day in
       @Dependency(\.dayDatabase.context)
       var context: ModelContext
-
+      
       @Dependency(\.dayMapper)
       var mapper: DayMapper
-
+      
       context.insert(mapper.toData(day))
       do {
         try context.save()
@@ -49,7 +49,7 @@ extension DayRepository: DependencyKey {
       return .success("bar")
     }
   )
-
+  
   static let previewValue: DayRepository = Self(
     fetchAll: {
       return .success([])
