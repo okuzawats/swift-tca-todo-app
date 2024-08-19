@@ -12,13 +12,13 @@ extension NoteMapper: DependencyKey {
       let elements = note
         .map { line in
           let isDone = line.status == "X"
-          return NoteItem(id: line.id, isDone: isDone, text: line.text, isEdit: false)
+          return NoteItem(id: line.id, dayId: line.dayId, isDone: isDone, text: line.text, isEdit: false)
         }
       return IdentifiedArrayOf(uniqueElements: elements)
     },
     toData: { noteItem in
       let status = if noteItem.isDone { "x" } else { "" }
-      return Note(id: noteItem.id, status: status, text: noteItem.text)
+      return Note(id: noteItem.id, dayId: noteItem.dayId, status: status, text: noteItem.text)
     }
   )
   
@@ -27,13 +27,13 @@ extension NoteMapper: DependencyKey {
       let elements = note
         .map { line in
           let isDone = line.status == "X"
-          return NoteItem(id: line.id, isDone: isDone, text: line.text, isEdit: false)
+          return NoteItem(id: line.id, dayId: line.dayId, isDone: isDone, text: line.text, isEdit: false)
         }
       return IdentifiedArrayOf(uniqueElements: elements)
     },
     toData: { noteItem in
       let status = if noteItem.isDone { "x" } else { "" }
-      return Note(id: noteItem.id, status: status, text: noteItem.text)
+      return Note(id: noteItem.id, dayId: noteItem.dayId, status: status, text: noteItem.text)
     }
   )
 }
