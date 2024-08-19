@@ -1,3 +1,4 @@
+import ComposableArchitecture
 import Dependencies
 import Foundation
 import SwiftData
@@ -8,15 +9,19 @@ enum DayRepositoryError: Error {
 }
 
 struct DayRepository {
-  var fetchAll: () async -> Result<[Day], DayRepositoryError>
-  var save: (Day) async -> Result<String, DayRepositoryError>
+  var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, DayRepositoryError>
+  var save: (DayItem) async -> Result<String, DayRepositoryError>
 }
 
 extension DayRepository: DependencyKey {
   static let liveValue: DayRepository = Self(
     fetchAll: {
-      @Dependency(\.dayDatabase.context) var context: ModelContext
-      
+      @Dependency(\.dayDatabase.context)
+      var context: ModelContext
+
+      @Dependency(\.dayMapper)
+      var mapper: DayMapper
+
       let fetchDispatcher = FetchDescriptor<Day>()
       let allDay: [Day]
       do {
@@ -24,16 +29,18 @@ extension DayRepository: DependencyKey {
       } catch {
         return .failure(.fetchError)
       }
-      
-      // TODO: transform [Day] to non-db-dependent type
-      return .success(allDay)
+
+      return .success(mapper.toPresentation(allDay))
     },
     save: { day in
-      @Dependency(\.dayDatabase.context) var context: ModelContext
-      
-      let inserted: Day
+      @Dependency(\.dayDatabase.context)
+      var context: ModelContext
+
+      @Dependency(\.dayMapper)
+      var mapper: DayMapper
+
+      context.insert(mapper.toData(day))
       do {
-        context.insert(day)
         try context.save()
       } catch {
         return .failure(.insertionError)

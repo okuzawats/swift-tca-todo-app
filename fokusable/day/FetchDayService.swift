@@ -12,8 +12,8 @@ struct FetchDayService {
 extension FetchDayService: DependencyKey {
   static let liveValue: FetchDayService = Self(
     fetchAll: {
-      @Dependency(\.dayRepository) var repository: DayRepository
-      @Dependency(\.dayMapper) var mapper: DayMapper
+      @Dependency(\.dayRepository)
+      var repository: DayRepository
       
       let allDays = await repository.fetchAll()
       switch allDays {
@@ -26,14 +26,11 @@ extension FetchDayService: DependencyKey {
           day.date == formatter.string(from: dateOfToday)
         })
         if !hasCreatedToday {
-          let today = Day(
-            id: UUID(),
-            date: formatter.string(from: dateOfToday)
-          )
+          let today = DayItem(id: UUID(), day: formatter.string(from: dateOfToday))
           let _ = await repository.save(today)
           days.insert(today, at: 0)
         }
-        return .success(mapper.toPresentation(days))
+        return .success(days)
       case .failure(let error):
         return .failure(FetchDayError())
       }

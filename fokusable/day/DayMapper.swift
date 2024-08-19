@@ -3,6 +3,7 @@ import Dependencies
 
 struct DayMapper {
   var toPresentation: ([Day]) -> IdentifiedArrayOf<DayItem>
+  var toData: (DayItem) -> Day
 }
 
 extension DayMapper: DependencyKey {
@@ -15,6 +16,9 @@ extension DayMapper: DependencyKey {
         .sorted(by: >)
       
       return IdentifiedArrayOf(uniqueElements: elements)
+    },
+    toData: { dayItem in
+      return Day(id: dayItem.id, date: dayItem.date)
     }
   )
 
@@ -27,7 +31,8 @@ extension DayMapper: DependencyKey {
         .sorted(by: >)
       
       return IdentifiedArrayOf(uniqueElements: elements)
-    }
+    },
+    toData: { Day(id: $0.id, date: $0.date) }
   )
 }
 
