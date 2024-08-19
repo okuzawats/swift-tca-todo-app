@@ -7,12 +7,23 @@ struct FetchNoteError: Error {}
 
 /// ノートの読み込み機能を提供するサービス
 struct FetchNoteService {
-  /// ノートのIDを用いてノートを取得する。
+  /// 日付IDを用いてノートを取得する。
+  var fetchByDayId: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, FetchNoteError>
+  /// ノートIDを用いてノートを取得する。
   var fetchById: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, FetchNoteError>
 }
 
 extension FetchNoteService: DependencyKey {
   static let liveValue: FetchNoteService = Self(
+    fetchByDayId: { id in
+      @Dependency(\.noteRepository)
+      var repository: NoteRepository
+      
+      @Dependency(\.noteMapper)
+      var mapper: NoteMapper
+
+      return .success([])
+    },
     fetchById: { id in
       @Dependency(\.noteRepository)
       var repository: NoteRepository
@@ -32,6 +43,9 @@ extension FetchNoteService: DependencyKey {
   )
   
   static let previewValue: FetchNoteService = Self(
+    fetchByDayId: { id in
+      return .success([])
+    },
     fetchById: {_ in
       return .success([])
     }
