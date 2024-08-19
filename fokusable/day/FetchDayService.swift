@@ -2,10 +2,14 @@ import ComposableArchitecture
 import Dependencies
 import Foundation
 
+/// 日付の取得失敗を表すエラー型
 struct FetchDayError: Error {}
 
+/// 日付の取得機能を提供するサービス
 struct FetchDayService {
+  /// すべての日付を取得する
   var fetchAll: () async -> Result<IdentifiedArrayOf<DayItem>, FetchDayError>
+  /// 当日の日付を取得する
   var fetchToday: () async -> Result<DayItem, FetchDayError>
 }
 

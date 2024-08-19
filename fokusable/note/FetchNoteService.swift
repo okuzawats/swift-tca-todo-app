@@ -19,23 +19,23 @@ extension FetchNoteService: DependencyKey {
       @Dependency(\.noteRepository)
       var repository: NoteRepository
       
-      @Dependency(\.noteMapper)
-      var mapper: NoteMapper
-
-      return .success([])
+      // TODO: DayIDを用いて取得するように修正
+      switch await repository.fetch(UUID()) {
+      case .success(let note):
+        return .success(note)
+      case .failure(let error):
+        return .failure(FetchNoteError())
+      }
     },
     fetchById: { id in
       @Dependency(\.noteRepository)
       var repository: NoteRepository
       
-      @Dependency(\.noteMapper)
-      var mapper: NoteMapper
-      
       let notes = await repository.fetch(id)
       
       switch notes {
       case .success(let note):
-        return .success(mapper.toPresentation(note))
+        return .success(note)
       case .failure(let error):
         return .failure(FetchNoteError())
       }

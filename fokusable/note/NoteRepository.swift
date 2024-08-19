@@ -1,3 +1,4 @@
+import ComposableArchitecture
 import Dependencies
 import Foundation
 import SwiftData
@@ -9,8 +10,8 @@ enum NoteRepositoryError: Error {
 }
 
 struct NoteRepository {
-  var fetch: (UUID) async -> Result<[Note], NoteRepositoryError>
-  var save: (Note) async -> Result<Void, NoteRepositoryError>
+  var fetch: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, NoteRepositoryError>
+  var save: (NoteItem) async -> Result<Void, NoteRepositoryError>
 }
 
 extension NoteRepository: DependencyKey {
@@ -18,12 +19,15 @@ extension NoteRepository: DependencyKey {
     fetch: { id in
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
-
+      
+      @Dependency(\.noteMapper)
+      var mapper: NoteMapper
+      
       let fetchDispatcher = FetchDescriptor<Note>(
         // IDが等しいノートのみを取得するためのQuery
         predicate: #Predicate { $0.id == id }
       )
-
+      
       let allNote: [Note]
       do {
         allNote = try context.fetch(fetchDispatcher)
@@ -31,15 +35,16 @@ extension NoteRepository: DependencyKey {
         return .failure(.fetchError)
       }
       
-      // TODO: transform Note to non-db-dependent type
-      return .success(allNote)
+      return .success(mapper.toPresentation(allNote))
     },
-    save: { note in
+    save: { noteItem in
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
       
-      context.insert(note)
-
+      @Dependency(\.noteMapper)
+      var mapper: NoteMapper
+      
+      context.insert(mapper.toData(noteItem))
       do {
         try context.save()
       } catch {
@@ -52,7 +57,7 @@ extension NoteRepository: DependencyKey {
   
   static let previewValue: NoteRepository = Self(
     fetch: { _ in
-      return .success([Note(id: UUID(), status: "", text: "This is a test data.")])
+      return .success([])
     },
     save: { _ in
       return .success(())

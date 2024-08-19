@@ -17,10 +17,7 @@ extension SaveNoteService: DependencyKey {
       @Dependency(\.noteRepository)
       var repository: NoteRepository
       
-      @Dependency(\.noteMapper)
-      var mapper: NoteMapper
-      
-      switch await repository.save(mapper.toData(note)) {
+      switch await repository.save(note) {
       case .success:
         return .success(())
       case .failure:
