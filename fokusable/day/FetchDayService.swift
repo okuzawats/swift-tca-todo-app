@@ -40,11 +40,33 @@ extension FetchDayService: DependencyKey {
       }
     },
     fetchToday: {
-      // TODO: implement loading today
-      return .success(
-        DayItem(id: UUID(), day: "2024-06-08")
-      )
-      //      return .failure(DayFetchingError())
+      @Dependency(\.dayRepository)
+      var repository: DayRepository
+      
+      let allDays = await repository.fetchAll()
+      switch allDays {
+      case .success(var days):
+        let dateOfToday = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let hasCreatedToday = days.contains(where: { day in
+          day.date == formatter.string(from: dateOfToday)
+        })
+        if hasCreatedToday {
+          let today = await repository.fetchToday(formatter.string(from: dateOfToday))
+          switch today {
+          case .success(let day):
+            return .success(day)
+          case .failure:
+            return .failure(FetchDayError())
+          }
+        } else {
+          return .failure(FetchDayError())
+        }
+      case .failure(let error):
+        return .failure(FetchDayError())
+      }
     }
   )
   

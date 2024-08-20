@@ -91,8 +91,7 @@ struct FokusableFeature {
           switch fetchedNotes {
           case .success(var notes):
             // 空のノートを作成し、そのノートを編集状態にする
-            // TODO: 日付から `id` を取得して `dayId` に渡す
-            let emptyNote = NoteItem(id: UUID(), dayId: UUID(), isDone: false, text: "", isEdit: true)
+            let emptyNote = NoteItem(id: UUID(), dayId: day.id, isDone: false, text: "", isEdit: true)
             notes.append(emptyNote)
             await send(.onFetchedNote(notes))
           case .failure(let error):
@@ -175,9 +174,9 @@ struct FokusableFeature {
         case .list(var noteItems):
           if text != "" {
             // ノートが保存された時、新たに空のノートを作成する。
-            // TODO: 日付から `id` を取得して `dayId` に渡す
+            // 日付IDは、保存されたノートと同一の日付IDを使用する。
             noteItems.append(
-              NoteItem(id: UUID(), dayId: UUID(), isDone: false, text: "", isEdit: true)
+              NoteItem(id: UUID(), dayId: noteItem.dayId, isDone: false, text: "", isEdit: true)
             )
           }
           
