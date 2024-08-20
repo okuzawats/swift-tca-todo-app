@@ -5,15 +5,9 @@ import SwiftData
 /// ModelContainerのインスタンスを `shared` として保持している。
 struct FokusableModelContainer {
   static var shared: ModelContainer = {
-    let schema = Schema([
-      Day.self,
-      Note.self
-    ])
-
-    let configurations = [
-      ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-    ]
-
+    let schema = Schema([Day.self, Note.self])
+    let configurations = [ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)]
+    
     do {
       return try ModelContainer(for: schema, configurations: configurations)
     } catch {
