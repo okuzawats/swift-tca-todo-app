@@ -182,7 +182,6 @@ struct FokusableFeature {
             )
           }
           
-          print(noteItems)
           state.noteState = .list(
             items: IdentifiedArrayOf(
               uniqueElements: noteItems
