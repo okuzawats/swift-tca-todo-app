@@ -30,13 +30,13 @@ extension NoteRepository: DependencyKey {
       @Dependency(\.noteMapper)
       var mapper: NoteMapper
       
-      let fetchDispatcher = FetchDescriptor<Note>(
+      let fetchDescriptor = FetchDescriptor<Note>(
         // 日付IDが等しいノートのみを取得するためのQuery
         predicate: #Predicate { $0.dayId == dayId }
       )
       
       do {
-        let allNote = try context.fetch(fetchDispatcher)
+        let allNote = try context.fetch(fetchDescriptor)
         return .success(mapper.toPresentation(allNote))
       } catch {
         return .failure(.fetchError)
@@ -49,8 +49,8 @@ extension NoteRepository: DependencyKey {
       @Dependency(\.noteMapper)
       var mapper: NoteMapper
       
-      context.insert(mapper.toData(noteItem))
       do {
+        context.insert(mapper.toData(noteItem))
         try context.save()
         return .success(())
       } catch {
