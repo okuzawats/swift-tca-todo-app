@@ -9,8 +9,6 @@ struct FetchNoteError: Error {}
 struct FetchNoteService {
   /// 日付IDを用いてノートを取得する。
   var fetchByDayId: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, FetchNoteError>
-  /// ノートIDを用いてノートを取得する。
-  var fetchById: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, FetchNoteError>
 }
 
 extension FetchNoteService: DependencyKey {
@@ -26,27 +24,11 @@ extension FetchNoteService: DependencyKey {
       case .failure(let error):
         return .failure(FetchNoteError())
       }
-    },
-    fetchById: { id in
-      @Dependency(\.noteRepository)
-      var repository: NoteRepository
-      
-      let notes = await repository.fetch(id)
-      
-      switch notes {
-      case .success(let note):
-        return .success(note)
-      case .failure(let error):
-        return .failure(FetchNoteError())
-      }
     }
   )
   
   static let previewValue: FetchNoteService = Self(
     fetchByDayId: { id in
-      return .success([])
-    },
-    fetchById: {_ in
       return .success([])
     }
   )

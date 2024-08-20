@@ -86,8 +86,7 @@ struct FokusableFeature {
         // 当日のノートの取得に失敗した場合、onFailedFetchingNoteを呼び出す。
         state.noteState = .empty
         return .run { send in
-          // TODO: 日付ごとにノートを読み込む処理が未実装なので、実装する。fetchByIdではなく、fetchByDayを実装。
-          let fetchedNotes = await fetchNoteService.fetchById(day.id)
+          let fetchedNotes = await fetchNoteService.fetchByDayId(day.id)
           logger.info("fetched notes = \(fetchedNotes)")
           switch fetchedNotes {
           case .success(var notes):
