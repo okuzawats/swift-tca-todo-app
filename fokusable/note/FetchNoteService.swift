@@ -13,12 +13,11 @@ struct FetchNoteService {
 
 extension FetchNoteService: DependencyKey {
   static let liveValue: FetchNoteService = Self(
-    fetchByDayId: { id in
+    fetchByDayId: { dayId in
       @Dependency(\.noteRepository)
       var repository: NoteRepository
       
-      // TODO: DayIDを用いて取得するように修正
-      switch await repository.fetch(UUID()) {
+      switch await repository.fetchByDayId(dayId) {
       case .success(let note):
         return .success(note)
       case .failure(let error):

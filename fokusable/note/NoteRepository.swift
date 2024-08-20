@@ -3,20 +3,27 @@ import Dependencies
 import Foundation
 import SwiftData
 
+/// NoteRepositoryで発生するエラー型
 enum NoteRepositoryError: Error {
+  /// 読み込み失敗を表すエラー型
   case fetchError
+  /// 要求されたデータモデルが存在しないことを表すエラー型
   case noEntityError
+  /// 保存失敗を表すエラー型
   case insertionError
 }
 
+/// ノート集約に対するRepository
 struct NoteRepository {
-  var fetch: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, NoteRepositoryError>
+  /// 日付IDを用いて、対応するノートを取得する。
+  var fetchByDayId: (UUID) async -> Result<IdentifiedArrayOf<NoteItem>, NoteRepositoryError>
+  // ノートを保存する。
   var save: (NoteItem) async -> Result<Void, NoteRepositoryError>
 }
 
 extension NoteRepository: DependencyKey {
   static let liveValue: NoteRepository = Self(
-    fetch: { id in
+    fetchByDayId: { dayId in
       @Dependency(\.noteDatabase.context)
       var context: ModelContext
       
@@ -24,18 +31,16 @@ extension NoteRepository: DependencyKey {
       var mapper: NoteMapper
       
       let fetchDispatcher = FetchDescriptor<Note>(
-        // IDが等しいノートのみを取得するためのQuery
-        predicate: #Predicate { $0.id == id }
+        // 日付IDが等しいノートのみを取得するためのQuery
+        predicate: #Predicate { $0.dayId == dayId }
       )
       
-      let allNote: [Note]
       do {
-        allNote = try context.fetch(fetchDispatcher)
+        let allNote = try context.fetch(fetchDispatcher)
+        return .success(mapper.toPresentation(allNote))
       } catch {
         return .failure(.fetchError)
       }
-      
-      return .success(mapper.toPresentation(allNote))
     },
     save: { noteItem in
       @Dependency(\.noteDatabase.context)
@@ -47,16 +52,15 @@ extension NoteRepository: DependencyKey {
       context.insert(mapper.toData(noteItem))
       do {
         try context.save()
+        return .success(())
       } catch {
         return .failure(.insertionError)
       }
-      
-      return .success(())
     }
   )
   
   static let previewValue: NoteRepository = Self(
-    fetch: { _ in
+    fetchByDayId: { _ in
       return .success([])
     },
     save: { _ in
